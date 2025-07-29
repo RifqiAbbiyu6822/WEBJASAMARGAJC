@@ -5,170 +5,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JJC - Jasa Marga Group</title>
     <link rel="stylesheet" href="style/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="top-bar">
-            <div class="container">
-                <div class="top-bar-content">
-                    <div class="contact-info">
-                        <span>📞 (021) 7928-0000</span>
-                        <span>✉️ info@jjc.co.id</span>
-                    </div>
-                    <div>
-                        <span>🌐 ID | EN</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
         <div class="container">
             <nav class="main-nav">
                 <div class="logo">
-                    <img src="assets/js/img/logoJJCW.png" alt="JJC Logo" style="width: 80px; height: 80px; object-fit: contain;">
+                    <img src="assets/js/img/logoJJC.png" alt="JJC Logo" class="logo-img logo-transparent">
+                    <img src="assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img logo-scrolled">
                 </div>
                 
                 <ul class="nav-menu">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="pages/tentang.html">Tentang Kami</a></li>
-                    <li><a href="pages/layanan.html">Layanan</a></li>
-                    <li><a href="pages/pemegang-saham.html">Pemegang Saham</a></li>
-                    <li><a href="pages/berita.html">Berita</a></li>
-                    <li><a href="pages/kontak.html">Kontak</a></li>
+                    <li><a href="#home">BERANDA</a></li>
+                    <li><a href="pages/tentang.html">PROFIL PERUSAHAAN</a></li>
+                    <li><a href="pages/layanan.html">PRODUK & LAYANAN</a></li>
+                    <li><a href="#pengadaan">PENGADAAN</a></li>
+                    <li><a href="pages/berita.html">BERITA</a></li>
+                    <li><a href="pages/kontak.html">KONTAK KAMI</a></li>
+                    <li><a href="#aplikasi">APLIKASI</a></li>
                 </ul>
+                
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Membangun Masa Depan Indonesia</h1>
-                <p>JJC - Anak perusahaan Jasa Marga yang berkomitmen memberikan solusi infrastruktur terbaik untuk kemajuan bangsa</p>
-                <a href="pages/layanan.html" class="cta-button">Pelajari Layanan Kami</a>
+    <section class="hero">
+        <div class="hero-background">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="assets/bgBERANDA.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>PT Jasa Marga Jalan Layang Cikampek</h1>
+                        <p>JJC merupakan anak perusahaan PT Jasa Marga (Persero) Tbk dengan komposisi saham 99,82% milik PT Jasa Marga (Persero) Tbk dan 0,18% persen milik Induk Koperasi Karyawan Jasa Marga.</p>
+                        <a href="pages/tentang.html" class="cta-btn">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-stats">
+            <div class="container">
+                <div class="stats-content">
+                    <div class="stat-item">
+                        <i class="fas fa-road"></i>
+                        <h3>1200</h3>
+                        <span>Ton/Hari Asphalt</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3>± 1.131,74</h3>
+                        <span>km Jalan Tol</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200</h3>
+                        <span>kilometer Jembatan</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-truck"></i>
+                        <h3>108</h3>
+                        <span>Buah Alat Berat</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Preview -->
-    <section id="layanan-preview" class="services">
+    <!-- About Us Section -->
+    <section class="about-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Layanan Unggulan</h2>
-                <p>Kami menyediakan berbagai layanan infrastruktur dan konstruksi dengan standar kualitas internasional</p>
+            <div class="section-header">
+                <div class="yellow-bar"></div>
+                <h2>TENTANG KAMI</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>PT JJC merupakan anak usaha dari PT Jasa Marga (Persero) Tbk, penyedia jalan bebas hambatan terbesar di Indonesia, di mana sebesar 99,82% kepemilikannya adalah milik Jasa Marga sebagai induk Perusahaan. Dikenal bergerak dalam bidang pemeliharaan jalan tol untuk mendukung lini bisnis utama Jasa Marga terutama dalam hal pemenuhan Standar Pelayanan Minimum (SPM) jalan tol.</p>
+                    <a href="pages/tentang.html" class="read-more-btn">
+                        SELENGKAPNYA
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-truck-monster"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="yellow-bar"></div>
+                <h2>PRODUK & LAYANAN</h2>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🛣️</div>
-                    <h3>Pembangunan Jalan Tol</h3>
-                    <p>Perencanaan, desain, dan pembangunan jalan tol dengan teknologi terdepan dan standar keselamatan tinggi.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Kontrak Manajemen Pemeliharaan</h3>
+                    <p>Perencanaan dan pelaksanaan pemeliharaan jalan tol dengan standar kualitas tinggi dan teknologi terdepan.</p>
+                    <a href="pages/layanan.html" class="detail-btn">
+                        Lihat Detail
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">🏗️</div>
-                    <h3>Konstruksi Infrastruktur</h3>
-                    <p>Layanan konstruksi untuk berbagai proyek infrastruktur termasuk jembatan, underpass, dan fasilitas penunjang.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>General Contractor</h3>
+                    <p>JJC dipercaya menangani proyek konstruksi skala besar dengan pengalaman dan keahlian yang telah teruji.</p>
+                    <a href="pages/layanan.html" class="detail-btn">
+                        Lihat Detail
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">⚙️</div>
-                    <h3>Pemeliharaan Jalan</h3>
-                    <p>Layanan pemeliharaan rutin dan berkala untuk menjaga kualitas dan keamanan jalan tol.</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="pages/layanan.html" class="cta-button">Lihat Semua Layanan</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Preview -->
-    <section id="tentang-preview" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Tentang JJC</h2>
-                    <p>JJC merupakan anak perusahaan PT Jasa Marga (Persero) Tbk yang bergerak dalam bidang konstruksi dan pengembangan infrastruktur transportasi. Didirikan dengan visi untuk menjadi perusahaan konstruksi terdepan di Indonesia.</p>
-                    
-                    <p>Dengan pengalaman puluhan tahun dan didukung oleh tenaga ahli profesional, JJC telah berkontribusi dalam pembangunan infrastruktur vital Indonesia, khususnya dalam pembangunan dan pemeliharaan jalan tol.</p>
-                    
-                    <a href="pages/tentang.html" class="cta-button">Selengkapnya</a>
+                    <div class="service-icon">
+                        <i class="fas fa-bridge"></i>
+                    </div>
+                    <h3>Jasa Survey Pemeliharaan Jalan dan Jembatan</h3>
+                    <p>Layanan survey komprehensif untuk pemeliharaan jalan tol dan jembatan dengan tenaga ahli teknik sipil.</p>
+                    <a href="pages/layanan.html" class="detail-btn">
+                        Lihat Detail
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
                 
-                <div class="about-image">
-                    🏢
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Jasa Penyewaan Alat Berat</h3>
+                    <p>Layanan penyewaan alat berat JJC untuk lingkup internal dan eksternal dengan kualitas terjamin.</p>
+                    <a href="pages/layanan.html" class="detail-btn">
+                        Lihat Detail
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Produk JJC</h3>
+                    <p>JJC memproduksi berbagai jenis aspal dengan kualitas yang telah teruji dan memenuhi standar internasional.</p>
+                    <a href="pages/layanan.html" class="detail-btn">
+                        Lihat Detail
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
+    <!-- News Section -->
+    <section class="news-section">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>45+</h3>
-                    <p>Tahun Pengalaman</p>
-                </div>
-                <div class="stat-item">
-                    <h3>500+</h3>
-                    <p>Proyek Selesai</p>
-                </div>
-                <div class="stat-item">
-                    <h3>36+</h3>
-                    <p>Kilometer Jalan</p>
-                </div>
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>Tenaga Ahli</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Latest News Preview -->
-    <section class="news-preview">
-        <div class="container">
-            <div class="section-title">
-                <h2>Berita Terbaru</h2>
-                <p>Ikuti perkembangan terbaru dari JJC dan proyek-proyek infrastruktur kami</p>
+            <div class="section-header">
+                <h2>KUMPULAN BERITA JJC</h2>
             </div>
             
             <div class="news-grid">
                 <article class="news-card">
-                    <div class="news-image">📰</div>
+                    <div class="news-image">
+                        <i class="fas fa-users"></i>
+                    </div>
                     <div class="news-content">
-                        <h3>Penyelesaian Proyek Jalan Tol Trans Jawa</h3>
-                        <p>JJC berhasil menyelesaikan pembangunan segmen tol Trans Jawa dengan kualitas internasional...</p>
-                        <span class="news-date">28 Juli 2025</span>
+                        <div class="news-date">02/07/2025 - 16:11</div>
+                        <h3>Perkuat Kualitas Infrastruktur Kota Jakarta, PT JJC Kembali Dapat Kepercayaan Dinas Bina Marga DKI Jakarta untuk Pekerjaan Hotmix Aspal PG Pak...</h3>
+                        <a href="pages/berita.html" class="read-more-btn">
+                            Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
                 
                 <article class="news-card">
-                    <div class="news-image">🏆</div>
+                    <div class="news-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <div class="news-content">
-                        <h3>Penghargaan Konstruksi Terbaik 2025</h3>
-                        <p>JJC meraih penghargaan sebagai perusahaan konstruksi infrastruktur terbaik tahun 2025...</p>
-                        <span class="news-date">25 Juli 2025</span>
+                        <div class="news-date">26/06/2025 - 20:33</div>
+                        <h3>Gelar Rapat Umum Pemegang Saham Tahunan (RUPST), PT JJC Catatkan Kinerja Positif Sepanjang Tahun 2024</h3>
+                        <a href="pages/berita.html" class="read-more-btn">
+                            Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
                 
                 <article class="news-card">
-                    <div class="news-image">🌱</div>
+                    <div class="news-image">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
                     <div class="news-content">
-                        <h3>Implementasi Teknologi Ramah Lingkungan</h3>
-                        <p>Komitmen JJC dalam menggunakan teknologi berkelanjutan pada setiap proyek konstruksi...</p>
-                        <span class="news-date">22 Juli 2025</span>
+                        <div class="news-date">01/11/2024 - 17:07</div>
+                        <h3>PRESS RELEASE PT JJC No. 04/2024 Tanggal 01 November 2024 PT JJC Integrasikan Sistem...</h3>
+                        <a href="pages/berita.html" class="read-more-btn">
+                            Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">24/10/2024 - 16:56</div>
+                        <h3>PT JJC hadir dalam acara Korea-Indonesia Business Networking 2024</h3>
+                        <a href="pages/berita.html" class="read-more-btn">
+                            Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </article>
             </div>
             
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="pages/berita.html" class="cta-button">Lihat Semua Berita</a>
+            <div class="news-more">
+                <a href="pages/berita.html" class="more-news-btn">
+                    Lihat Berita Lainnya
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -177,38 +255,42 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>JJC - Jasa Marga Group</h3>
-                    <p>Anak perusahaan PT Jasa Marga (Persero) Tbk yang berkomitmen dalam pembangunan infrastruktur transportasi Indonesia.</p>
+                <div class="footer-logo">
+                    <img src="assets/js/img/logoJJCW.png" alt="JJC Logo" class="footer-logo-img">
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Layanan</h3>
-                    <a href="pages/layanan.html">Pembangunan Jalan Tol</a>
-                    <a href="pages/layanan.html">Konstruksi Infrastruktur</a>
-                    <a href="pages/layanan.html">Pemeliharaan Jalan</a>
-                    <a href="pages/layanan.html">Konsultasi Teknik</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Kontak</h3>
-                    <p>📍 Jakarta, Indonesia</p>
-                    <p>📞 (021) 7928-0000</p>
-                    <p>✉️ info@jjc.co.id</p>
-                    <p>🌐 www.jjc.co.id</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Tautan</h3>
-                    <a href="pages/tentang.html">Tentang Kami</a>
-                    <a href="pages/pemegang-saham.html">Pemegang Saham</a>
-                    <a href="pages/berita.html">Berita & Media</a>
-                    <a href="pages/kontak.html">Hubungi Kami</a>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>TENTANG KAMI</h3>
+                        <a href="pages/tentang.html">Profil Perusahaan</a>
+                        <a href="#disclaimer">Disclaimer</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>BISNIS KAMI</h3>
+                        <a href="pages/layanan.html">General Contractor</a>
+                        <a href="pages/layanan.html">Kontrak Manajemen Pemeliharaan</a>
+                        <a href="pages/layanan.html">Jasa Survey Pemeliharaan</a>
+                        <a href="pages/layanan.html">Penyewaan Alat Berat</a>
+                        <a href="pages/layanan.html">Produk JJC</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>ALAMAT</h3>
+                        <p>Gedung C Graha Service Provider, Lantai 1 Kantor Pusat PT Jasa Marga (Persero) Tbk. Plaza Tol Taman Mini Indonesia Indah Jakarta 13550.</p>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 JJC - Jasa Marga Group. Hak Cipta Dilindungi.</p>
+                <div class="copyright">
+                    © 2025 PT JJC - Jasa Marga Group.
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
         </div>
     </footer>

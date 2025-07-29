@@ -1,57 +1,100 @@
 // Main JavaScript file for JJC Website
 
+// Navbar scroll effect
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.header');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add scrolled class when scrolling down with fade out effect
+        if (scrollTop > 30) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+});
+
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
+});
 
-    // Header scroll effect
-    const header = document.querySelector('.header');
+// Active navigation highlighting
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.background = 'linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.95) 100%)';
-            header.style.backdropFilter = 'blur(10px)';
-        } else {
-            header.style.background = 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)';
-            header.style.backdropFilter = 'none';
-        }
+        let current = '';
+        const scrollPosition = window.pageYOffset + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
     });
+});
 
-    // Stats animation
-    const statsSection = document.querySelector('.stats');
+// Stats animation
+document.addEventListener('DOMContentLoaded', function() {
+    const statsSection = document.querySelector('.hero-stats');
     const statItems = document.querySelectorAll('.stat-item h3');
     
-    const animateStats = () => {
-        statItems.forEach(stat => {
-            const finalValue = parseInt(stat.textContent);
-            let currentValue = 0;
-            const increment = finalValue / 50;
-            
-            const timer = setInterval(() => {
-                currentValue += increment;
-                if (currentValue >= finalValue) {
-                    stat.textContent = finalValue + (stat.textContent.includes('+') ? '+' : '');
-                    clearInterval(timer);
-                } else {
-                    stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('+') ? '+' : '');
-                }
-            }, 50);
-        });
-    };
+    if (statsSection && statItems.length > 0) {
+        const animateStats = () => {
+            statItems.forEach(stat => {
+                const finalValue = parseInt(stat.textContent);
+                let currentValue = 0;
+                const increment = finalValue / 50;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        stat.textContent = finalValue + (stat.textContent.includes('+') ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(currentValue) + (stat.textContent.includes('+') ? '+' : '');
+                    }
+                }, 50);
+            });
+        };
 
-    // Intersection Observer for stats animation
-    if (statsSection) {
+        // Intersection Observer for stats animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -62,11 +105,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         observer.observe(statsSection);
     }
+});
 
-    // Mobile menu toggle (if needed for responsive design)
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
     const createMobileMenu = () => {
         const navMenu = document.querySelector('.nav-menu');
         const header = document.querySelector('.header');
+        
+        if (!navMenu || !header) return;
         
         // Create mobile menu button
         const mobileMenuBtn = document.createElement('button');
@@ -95,7 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: 100%;
                     left: 0;
                     right: 0;
-                    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+                    background: rgba(30, 58, 138, 0.95);
+                    backdrop-filter: blur(10px);
                     flex-direction: column;
                     padding: 20px;
                     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -112,24 +160,28 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Insert mobile menu button
         const logo = document.querySelector('.logo');
-        logo.parentNode.insertBefore(mobileMenuBtn, navMenu);
-        
-        // Toggle menu
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!header.contains(e.target)) {
-                navMenu.classList.remove('active');
-            }
-        });
+        if (logo && navMenu) {
+            logo.parentNode.insertBefore(mobileMenuBtn, navMenu);
+            
+            // Toggle menu
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!header.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
     };
     
     createMobileMenu();
+});
 
-    // Fade in animation for cards
+// Fade in animation for cards
+document.addEventListener('DOMContentLoaded', function() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -153,8 +205,10 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         fadeInObserver.observe(el);
     });
+});
 
-    // Form validation (for contact forms)
+// Form validation
+document.addEventListener('DOMContentLoaded', function() {
     const validateForm = (form) => {
         const inputs = form.querySelectorAll('input[required], textarea[required]');
         let isValid = true;
@@ -203,26 +257,166 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
 
-    // Search functionality (if search box exists)
-    const searchBox = document.querySelector('.search-box');
-    if (searchBox) {
-        searchBox.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const searchableElements = document.querySelectorAll('.service-card, .news-card');
+// Comment form handling
+document.addEventListener('DOMContentLoaded', function() {
+    const commentForm = document.getElementById('commentForm');
+    
+    if (commentForm) {
+        commentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            searchableElements.forEach(element => {
-                const text = element.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    element.style.display = 'block';
-                } else {
-                    element.style.display = 'none';
+            // Remove previous error states
+            clearErrors();
+            
+            // Validate form
+            if (validateCommentForm(this)) {
+                // Show loading state
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+                submitBtn.disabled = true;
+                
+                // Simulate form submission (replace with actual backend integration)
+                setTimeout(() => {
+                    showSuccessMessage();
+                    this.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            }
+        });
+        
+        // Real-time validation
+        const inputs = commentForm.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateField(this);
                 }
             });
         });
     }
+});
 
-    // Back to top button
+function validateCommentForm(form) {
+    let isValid = true;
+    const requiredFields = form.querySelectorAll('[required]');
+    
+    requiredFields.forEach(field => {
+        if (!validateField(field)) {
+            isValid = false;
+        }
+    });
+    
+    // Validate email format
+    const emailField = form.querySelector('#email');
+    if (emailField && emailField.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailField.value)) {
+            showFieldError(emailField, 'Format email tidak valid');
+            isValid = false;
+        }
+    }
+    
+    // Validate phone number (if provided)
+    const phoneField = form.querySelector('#phone');
+    if (phoneField && phoneField.value) {
+        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+        if (!phoneRegex.test(phoneField.value)) {
+            showFieldError(phoneField, 'Format nomor telepon tidak valid');
+            isValid = false;
+        }
+    }
+    
+    return isValid;
+}
+
+function validateField(field) {
+    const value = field.value.trim();
+    
+    // Remove previous error
+    field.classList.remove('error');
+    const existingError = field.parentNode.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Check if required field is empty
+    if (field.hasAttribute('required') && !value) {
+        showFieldError(field, 'Field ini wajib diisi');
+        return false;
+    }
+    
+    // Specific validations
+    if (field.type === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            showFieldError(field, 'Format email tidak valid');
+            return false;
+        }
+    }
+    
+    if (field.id === 'phone' && value) {
+        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+        if (!phoneRegex.test(value)) {
+            showFieldError(field, 'Format nomor telepon tidak valid');
+            return false;
+        }
+    }
+    
+    if (field.id === 'message' && value.length < 10) {
+        showFieldError(field, 'Pesan minimal 10 karakter');
+        return false;
+    }
+    
+    return true;
+}
+
+function showFieldError(field, message) {
+    field.classList.add('error');
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    field.parentNode.appendChild(errorDiv);
+}
+
+function clearErrors() {
+    const errorFields = document.querySelectorAll('.form-group.error');
+    errorFields.forEach(field => {
+        field.classList.remove('error');
+    });
+    
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(message => {
+        message.remove();
+    });
+}
+
+function showSuccessMessage() {
+    const form = document.getElementById('commentForm');
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.innerHTML = '<i class="fas fa-check-circle"></i> Komentar Anda telah berhasil dikirim! Kami akan segera menghubungi Anda.';
+    
+    form.appendChild(successDiv);
+    
+    // Remove success message after 5 seconds
+    setTimeout(() => {
+        successDiv.remove();
+    }, 5000);
+    
+    // Scroll to success message
+    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Back to top button
+document.addEventListener('DOMContentLoaded', function() {
     const createBackToTopBtn = () => {
         const backToTopBtn = document.createElement('button');
         backToTopBtn.innerHTML = '↑';
@@ -278,94 +472,45 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     createBackToTopBtn();
+});
 
-    // Loading animation for page transitions
-    const showLoading = () => {
-        const loader = document.createElement('div');
-        loader.id = 'page-loader';
-        loader.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(30, 58, 138, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        `;
-        
-        const spinner = document.createElement('div');
-        spinner.style.cssText = `
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255,255,255,0.3);
-            border-top: 4px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        `;
-        
-        // Add spinner animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        loader.appendChild(spinner);
-        document.body.appendChild(loader);
-        
-        return loader;
-    };
+// Console welcome message
+console.log('%cWelcome to JJC Website!', 'color: #3b82f6; font-size: 16px; font-weight: bold;');
+console.log('%cDeveloped with ❤️ for Jasa Marga Group', 'color: #64748b; font-size: 12px;'); 
 
-    const hideLoading = (loader) => {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.remove();
-        }, 300);
-    };
-
-    // Handle page navigation with loading
-    document.querySelectorAll('a[href$=".html"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (!this.href.startsWith('#')) {
-                const loader = showLoading();
-                
-                // Simulate loading time
-                setTimeout(() => {
-                    hideLoading(loader);
-                }, 500);
-            }
-        });
-    });
-
-    // Lazy loading for images (if any images are added later)
-    const lazyLoadImages = () => {
-        const images = document.querySelectorAll('img[data-src]');
-        
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
+// Video background optimization
+document.addEventListener('DOMContentLoaded', function() {
+    const heroVideo = document.querySelector('.hero-video');
+    
+    if (heroVideo) {
+        // Ensure video plays on mobile devices
+        heroVideo.addEventListener('loadedmetadata', function() {
+            this.play().catch(function(error) {
+                console.log('Video autoplay failed:', error);
             });
         });
-
-        images.forEach(img => imageObserver.observe(img));
-    };
-
-    lazyLoadImages();
-
-    // Console welcome message
-    console.log('%cWelcome to JJC Website!', 'color: #3b82f6; font-size: 16px; font-weight: bold;');
-    console.log('%cDeveloped with ❤️ for Jasa Marga Group', 'color: #64748b; font-size: 12px;');
-});
+        
+        // Pause video when page is not visible (save battery)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                heroVideo.pause();
+            } else {
+                heroVideo.play().catch(function(error) {
+                    console.log('Video play failed:', error);
+                });
+            }
+        });
+        
+        // Optimize video performance
+        heroVideo.addEventListener('canplay', function() {
+            this.style.opacity = '1';
+        });
+        
+        // Fallback for slow connections
+        setTimeout(function() {
+            if (heroVideo.readyState < 2) { // HAVE_CURRENT_DATA
+                heroVideo.style.opacity = '0.8';
+            }
+        }, 3000);
+    }
+}); 
