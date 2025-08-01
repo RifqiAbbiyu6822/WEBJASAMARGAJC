@@ -267,39 +267,32 @@ document.addEventListener('DOMContentLoaded', function() {
         commentForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Remove previous error states
-            clearErrors();
-            
-            // Validate form
             if (validateCommentForm(this)) {
-                // Show loading state
-                const submitBtn = this.querySelector('.submit-btn');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-                submitBtn.disabled = true;
+                // Prepare email content
+                const formData = new FormData(this);
+                const emailContent = `
+                    Nama: ${formData.get('name')}
+                    Email: ${formData.get('email')}
+                    Telepon: ${formData.get('phone') || 'Tidak diisi'}
+                    Subjek: ${formData.get('subject')}
+                    Pesan: ${formData.get('message')}
+                    
+                    ---
+                    Laporan dari website JJC
+                `;
                 
-                // Simulate form submission (replace with actual backend integration)
-                setTimeout(() => {
-                    showSuccessMessage();
-                    this.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
+                // Create mailto link
+                const mailtoLink = `mailto:armasuka11@gmail.com?subject=Laporan JJC - ${formData.get('subject')}&body=${encodeURIComponent(emailContent)}`;
+                
+                // Open email client
+                window.open(mailtoLink);
+                
+                // Show success message
+                showSuccessMessage();
+                
+                // Reset form
+                this.reset();
             }
-        });
-        
-        // Real-time validation
-        const inputs = commentForm.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('blur', function() {
-                validateField(this);
-            });
-            
-            input.addEventListener('input', function() {
-                if (this.classList.contains('error')) {
-                    validateField(this);
-                }
-            });
         });
     }
 });
@@ -402,7 +395,7 @@ function showSuccessMessage() {
     const form = document.getElementById('commentForm');
     const successDiv = document.createElement('div');
     successDiv.className = 'success-message';
-    successDiv.innerHTML = '<i class="fas fa-check-circle"></i> Komentar Anda telah berhasil dikirim! Kami akan segera menghubungi Anda.';
+    successDiv.innerHTML = '<i class="fas fa-check-circle"></i> Laporan Anda telah berhasil dikirim! Email client akan terbuka untuk konfirmasi pengiriman.';
     
     form.appendChild(successDiv);
     
