@@ -3,124 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Layanan lengkap PT JJC - Ambulance, Derek, Mobile Customer Service, Kamtib, Rescue, dan fasilitas infrastruktur jalan tol.">
+    <meta name="keywords" content="JJC, Layanan, Ambulance, Derek, Customer Service, Kamtib, Rescue, Infrastruktur">
+    <meta name="author" content="PT JJC">
     <title>Layanan - JJC Jasa Marga Group</title>
+    
     <link rel="stylesheet" href="../style/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Layanan Infrastruktur Jalan Tol",
+        "provider": {
+            "@type": "Organization",
+            "name": "PT Jasa Marga Jalan Layang Cikampek"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Layanan JJC",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Layanan Ambulance 24/7"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Layanan Derek Kendaraan"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Enhanced Header -->
+    <header class="header" role="banner">
         <div class="container">
-            <nav class="main-nav">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
                 <div class="logo">
-                    <img src="../assets/js/img/logoJJC.png" alt="JJC Logo" class="logo-img logo-transparent">
                     <img src="../assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img logo-scrolled">
                 </div>
                 
                 <ul class="nav-menu">
                     <li><a href="../index.html">BERANDA</a></li>
                     <li><a href="tentang.html">PROFIL PERUSAHAAN</a></li>
-                    <li><a href="layanan.html" class="active">LAYANAN</a></li>
+                    <li><a href="layanan.html" aria-current="page" class="active">LAYANAN</a></li>
                     <li><a href="berita.html">KEGIATAN</a></li>
                     <li><a href="kontak.html">KONTAK KAMI</a></li>
                 </ul>
                 
-                <div class="social-icons">
-                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <div class="social-icons" role="complementary" aria-label="Social media links">
+                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <section class="page-header">
+    <!-- Enhanced Page Header with Banner -->
+    <section class="page-header services-page" role="banner">
         <div class="container">
-          
-        </div>
-    </section>
-
-    <!-- Layanan Kendaraan Section -->
-    <section class="services-detail">
-        <div class="container">
-            <div class="section-header">
-                <div class="yellow-bar"></div>
-                <h2>LAYANAN KENDARAAN</h2>
-            </div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <div class="breadcrumb-nav">
+                    <a href="../index.html">Beranda</a>
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Layanan</span>
+                </div>
+            </nav>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-ambulance"></i>
-                    </div>
-                    <h3>Ambulance</h3>
-                    <p>Layanan ambulans 24/7 untuk pertolongan medis darurat di jalan tol dengan tim medis profesional dan peralatan lengkap.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3>Derek</h3>
-                    <p>Layanan derek untuk evakuasi kendaraan bermasalah dengan armada yang siap siaga di berbagai titik strategis jalan tol.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3>Mobile customer service</h3>
-                    <p>Pengelolaan plaza tol dengan berbagai fasilitas seperti rest area, pom bensin, dan pusat layanan pengguna jalan tol. Tersedia di KM 21+000 dan KM 41+500 arah Cikampek, serta KM 39+500 dan KM 22+500 arah Jakarta.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Kamtib</h3>
-                    <p>Layanan keamanan dan ketertiban (Kamtib) untuk menjaga keamanan pengguna jalan tol dan aset infrastruktur.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-life-ring"></i>
-                    </div>
-                    <h3>Rescue</h3>
-                    <p>Tim rescue profesional untuk penanganan kecelakaan dan situasi darurat dengan peralatan modern dan terlatih.</p>
-                </div>
+            <div class="page-header-content fade-in-up">
+                <h1 class="page-title">Layanan Kami</h1>
+                <p class="page-subtitle">Layanan terpadu untuk mendukung keamanan, kenyamanan, dan kelancaran perjalanan di jalan tol</p>
             </div>
         </div>
     </section>
 
-    <!-- Fasilitas Infrastruktur Section -->
-    <section class="services-detail" style="background: #f8fafc;">
-        <div class="container">
-            <div class="section-header">
-                <div class="yellow-bar"></div>
-                <h2>FASILITAS INFRASTRUKTUR</h2>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-parking"></i>
-                    </div>
-                    <h3>Parking Bay</h3>
-                    <p>Fasilitas parking bay yang strategis untuk kendaraan darurat dan operasional dengan akses cepat ke jalan tol. Tersedia di KM 21+000 dan KM 41+500 arah Cikampek, serta KM 39+500 dan KM 22+500 arah Jakarta.</p>
-                </div>
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Vehicle Services Section -->
+        <section class="services-detail" aria-label="Vehicle services">
+            <div class="container">
+                <header class="section-header fade-in-up">
+                    <div class="yellow-bar" aria-hidden="true"></div>
+                    <h2>LAYANAN KENDARAAN</h2>
+                </header>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-stairs"></i>
-                    </div>
-                    <h3>Tangga Darurat</h3>
-                    <p>Tangga darurat yang tersedia di berbagai titik strategis untuk evakuasi cepat dalam situasi darurat. Lokasi: KM 21+000 dan KM 41+500 arah Cikampek, serta KM 39+500 dan KM 22+500 arah Jakarta.</p>
+                <div class="services-grid stagger-children">
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <h3>Ambulance</h3>
+                        <p>Layanan ambulans 24/7 untuk pertolongan medis darurat di jalan tol dengan tim medis profesional dan peralatan lengkap. Dilengkapi dengan teknologi komunikasi canggih untuk koordinasi cepat dengan rumah sakit terdekat.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Layanan 24 jam setiap hari</li>
+                                <li><i class="fas fa-check-circle"></i> Tim medis bersertifikat</li>
+                                <li><i class="fas fa-check-circle"></i> Peralatan medis lengkap</li>
+                                <li><i class="fas fa-check-circle"></i> Respons time cepat</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Derek</h3>
+                        <p>Layanan derek untuk evakuasi kendaraan bermasalah dengan armada yang siap siaga di berbagai titik strategis jalan tol. Dilengkapi dengan peralatan derek modern untuk berbagai jenis kendaraan.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Armada derek modern</li>
+                                <li><i class="fas fa-check-circle"></i> Operator berpengalaman</li>
+                                <li><i class="fas fa-check-circle"></i> Tersedia di titik strategis</li>
+                                <li><i class="fas fa-check-circle"></i> Untuk semua jenis kendaraan</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3>Mobile Customer Service</h3>
+                        <p>Layanan customer service mobile yang memberikan bantuan dan informasi kepada pengguna jalan tol. Tim yang terlatih siap membantu berbagai kebutuhan pengguna di sepanjang ruas tol.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Informasi lalu lintas terkini</li>
+                                <li><i class="fas fa-check-circle"></i> Bantuan teknis kendaraan</li>
+                                <li><i class="fas fa-check-circle"></i> Pelayanan keluhan pengguna</li>
+                                <li><i class="fas fa-check-circle"></i> Koordinasi layanan darurat</li>
+                            </ul>
+                        </div>
+                        <div class="service-locations">
+                            <h4>Lokasi Layanan:</h4>
+                            <p>KM 21+000 dan KM 41+500 arah Cikampek<br>
+                            KM 39+500 dan KM 22+500 arah Jakarta</p>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Kamtib (Keamanan dan Ketertiban)</h3>
+                        <p>Layanan keamanan dan ketertiban untuk menjaga keamanan pengguna jalan tol dan aset infrastruktur. Tim security profesional yang berpatroli 24 jam untuk memastikan keamanan di sepanjang ruas tol.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Patroli keamanan 24/7</li>
+                                <li><i class="fas fa-check-circle"></i> Monitoring CCTV terpusat</li>
+                                <li><i class="fas fa-check-circle"></i> Koordinasi dengan Polisi</li>
+                                <li><i class="fas fa-check-circle"></i> Pengamanan aset infrastruktur</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-life-ring"></i>
+                        </div>
+                        <h3>Rescue</h3>
+                        <p>Tim rescue profesional untuk penanganan kecelakaan dan situasi darurat dengan peralatan modern dan terlatih. Siap menangani berbagai jenis kecelakaan dan situasi emergency di jalan tol.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Tim rescue terlatih</li>
+                                <li><i class="fas fa-check-circle"></i> Peralatan rescue lengkap</li>
+                                <li><i class="fas fa-check-circle"></i> Penanganan kecelakaan cepat</li>
+                                <li><i class="fas fa-check-circle"></i> Koordinasi multi-instansi</li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+        <!-- Infrastructure Facilities Section -->
+        <section class="services-detail infrastructure-section" aria-label="Infrastructure facilities">
+            <div class="container">
+                <header class="section-header fade-in-up">
+                    <div class="yellow-bar" aria-hidden="true"></div>
+                    <h2>FASILITAS INFRASTRUKTUR</h2>
+                </header>
+                
+                <div class="services-grid stagger-children">
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-parking"></i>
+                        </div>
+                        <h3>Parking Bay</h3>
+                        <p>Fasilitas parking bay yang tersedia di berbagai titik strategis untuk kendaraan darurat dan operasional dengan akses cepat ke jalan tol. Dirancang khusus untuk mendukung operasional layanan darurat.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Lokasi strategis di sepanjang tol</li>
+                                <li><i class="fas fa-check-circle"></i> Akses mudah untuk kendaraan darurat</li>
+                                <li><i class="fas fa-check-circle"></i> Area parkir yang aman</li>
+                                <li><i class="fas fa-check-circle"></i> Penerangan memadai</li>
+                            </ul>
+                        </div>
+                        <div class="service-locations">
+                            <h4>Lokasi Parking Bay:</h4>
+                            <p>KM 21+000 dan KM 41+500 arah Cikampek<br>
+                            KM 39+500 dan KM 22+500 arah Jakarta</p>
+                        </div>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">
+                            <i class="fas fa-stairs"></i>
+                        </div>
+                        <h3>Tangga Darurat</h3>
+                        <p>Tangga darurat yang tersedia di berbagai titik strategis untuk evakuasi cepat dalam situasi darurat. Dirancang sesuai standar keselamatan internasional dengan akses mudah dan aman.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Konstruksi tahan cuaca</li>
+                                <li><i class="fas fa-check-circle"></i> Standar keselamatan internasional</li>
+                                <li><i class="fas fa-check-circle"></i> Pemeliharaan rutin</li>
+                                <li><i class="fas fa-check-circle"></i> Akses darurat yang aman</li>
+                            </ul>
+                        </div>
+                        <div class="service-locations">
+                            <h4>Lokasi Tangga Darurat:</h4>
+                            <p>KM 21+000 dan KM 41+500 arah Cikampek<br>
+                            KM 39+500 dan KM 22+500 arah Jakarta</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Contact Section -->
+        <section class="emergency-contact-section" aria-label="Emergency contact information">
+            <div class="container">
+                <header class="section-header fade-in-up">
+                    <div class="yellow-bar" aria-hidden="true"></div>
+                    <h2>KONTAK DARURAT</h2>
+                </header>
+                
+                <div class="emergency-grid fade-in-up">
+                    <div class="emergency-card">
+                        <div class="emergency-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Call Center 24/7</h3>
+                        <p class="emergency-number">14080</p>
+                        <p>Hubungi kami kapan saja untuk bantuan darurat di jalan tol</p>
+                    </div>
+                    
+                    <div class="emergency-card">
+                        <div class="emergency-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>SMS Center</h3>
+                        <p class="emergency-number">9911</p>
+                        <p>Kirim SMS untuk laporan dan informasi lalu lintas</p>
+                    </div>
+                    
+                    <div class="emergency-card">
+                        <div class="emergency-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p class="emergency-number">help@jjc.co.id</p>
+                        <p>Kirim email untuk keluhan dan saran perbaikan layanan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -136,7 +301,7 @@
                     
                     <div class="footer-column">
                         <h3>BISNIS KAMI</h3>
-                        <a href="layanan.html">General Contractor</a>
+                        <a href="layanan.html" aria-current="page">General Contractor</a>
                         <a href="layanan.html">Kontrak Manajemen Pemeliharaan</a>
                         <a href="layanan.html">Jasa Survey Pemeliharaan</a>
                         <a href="layanan.html">Penyewaan Alat Berat</a>
@@ -145,19 +310,27 @@
                     
                     <div class="footer-column">
                         <h3>ALAMAT</h3>
-                        <p>Jl. Teuku Umar No.1, RT.002/RW.001, Sepanjang Jaya, Kec. Rawalumbu, Kota Bekasi, Jawa Barat 17114.</p>
+                        <address>
+                            Jl. Teuku Umar No.1, RT.002/RW.001<br>
+                            Sepanjang Jaya, Kec. Rawalumbu<br>
+                            Kota Bekasi, Jawa Barat 17114
+                        </address>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <div class="copyright">
-                    © 2025 PT JJC - Jasa Marga Group.
+                    <p>&copy; 2025 PT JJC - Jasa Marga Group. All rights reserved.</p>
                 </div>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <div class="social-icons" role="complementary" aria-label="Footer social media links">
+                    <a href="#" aria-label="YouTube JJC"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -165,4 +338,4 @@
 
     <script src="../assets/js/main.js"></script>
 </body>
-</html> 
+</html>
