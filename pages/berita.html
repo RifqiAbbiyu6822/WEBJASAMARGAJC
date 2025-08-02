@@ -7,173 +7,136 @@
     <link rel="stylesheet" href="../style/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="pages news-page">
-    <!-- Enhanced Header with Fixed Layout -->
-    <header class="header" role="banner">
+<body>
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <nav class="main-nav" role="navigation" aria-label="Main navigation">
-                <!-- Logo positioned left -->
+            <nav class="main-nav">
                 <div class="logo">
-                    <a href="../index.html" aria-label="JJC Home">
-                        <img src="../assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img logo-scrolled">
-                    </a>
+                    <img src="../assets/js/img/logoJJC.png" alt="JJC Logo" class="logo-img logo-transparent">
+                    <img src="../assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img logo-scrolled">
                 </div>
                 
-                <!-- Navigation container positioned right -->
-                <div class="nav-container">
-                    <ul class="nav-menu">
-                        <li><a href="../index.html">BERANDA</a></li>
-                        <li><a href="tentang.html">PROFIL PERUSAHAAN</a></li>
-                        <li><a href="layanan.html">LAYANAN</a></li>
-                        <li><a href="berita.html" aria-current="page" class="active">KEGIATAN</a></li>
-                        <li><a href="kontak.html">KONTAK KAMI</a></li>
-                    </ul>
-                    
-                    <div class="social-icons" role="complementary" aria-label="Social media links">
-                        <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                    
-                    <!-- Mobile menu button -->
-                    <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">BERANDA</a></li>
+                    <li><a href="tentang.html">PROFIL PERUSAHAAN</a></li>
+                    <li><a href="layanan.html">LAYANAN</a></li>
+                    <li><a href="berita.html" class="active">KEGIATAN</a></li>
+                    <li><a href="kontak.html">KONTAK KAMI</a></li>
+                </ul>
+                
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Page Header with Hero Banner -->
-    <section class="page-header news-page" role="banner">
+    <!-- News Section -->
+    <section class="news-detail">
         <div class="container">
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-                <div class="breadcrumb-nav">
-                    <a href="../index.html">Beranda</a>
-                    <span class="separator" aria-hidden="true">/</span>
-                    <span class="current" aria-current="page">Kegiatan</span>
-                </div>
-            </nav>
+            <div class="section-header">
+                <div class="yellow-bar"></div>
+                <h2>Kegiatan Rutin</h2>
+            </div>
             
-            <div class="page-header-content fade-in-up">
-                <h1 class="page-title">Kegiatan Rutin</h1>
-                <p class="page-subtitle">Berita dan kegiatan terbaru dari PT JJC dalam pengembangan infrastruktur dan pelayanan tol</p>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">28 Juli 2025</div>
+                        <h3>Penyelesaian Proyek Jalan Tol Trans Jawa</h3>
+                        <p>JJC berhasil menyelesaikan pembangunan segmen tol Trans Jawa dengan kualitas internasional dan standar keamanan tertinggi. Proyek ini merupakan bagian dari program pemerintah dalam mengembangkan infrastruktur transportasi nasional.</p>
+                        <a href="#" class="read-more-btn">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">25 Juli 2025</div>
+                        <h3>Penghargaan Konstruksi Terbaik 2025</h3>
+                        <p>JJC meraih penghargaan sebagai perusahaan konstruksi infrastruktur terbaik tahun 2025 dari Kementerian PUPR. Penghargaan ini diberikan atas dedikasi dan inovasi dalam pengembangan infrastruktur nasional.</p>
+                        <a href="#" class="read-more-btn">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">22 Juli 2025</div>
+                        <h3>Implementasi Teknologi Ramah Lingkungan</h3>
+                        <p>Komitmen JJC dalam menggunakan teknologi berkelanjutan pada setiap proyek konstruksi. Implementasi material ramah lingkungan dan sistem manajemen limbah yang terintegrasi.</p>
+                        <a href="#" class="read-more-btn">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">20 Juli 2025</div>
+                        <h3>Pelatihan SDM untuk Peningkatan Kompetensi</h3>
+                        <p>Program pelatihan intensif untuk karyawan JJC dalam rangka meningkatkan kompetensi dan profesionalisme. Pelatihan mencakup teknologi terbaru dan standar keselamatan kerja.</p>
+                        <a href="#" class="read-more-btn">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">18 Juli 2025</div>
+                        <h3>Kerjasama Strategis dengan Mitra Internasional</h3>
+                        <p>Penandatanganan MoU dengan perusahaan konstruksi internasional untuk pengembangan teknologi dan transfer pengetahuan dalam proyek infrastruktur skala besar.</p>
+                        <a href="#" class="read-more-btn">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <div class="news-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">15 Juli 2025</div>
+                        <h3>Pertumbuhan Kinerja Operasional Q2 2025</h3>
+                        <p>Laporan kinerja operasional JJC menunjukkan pertumbuhan positif di kuartal kedua 2025. Peningkatan efisiensi dan produktivitas dalam berbagai proyek infrastruktur.</p>
+                        <a href="#" class="read-more-btn">
+                            Baca Selengkapnya
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main id="main-content" role="main">
-        <!-- News Section -->
-        <section class="news-detail" aria-label="News and activities">
-            <div class="container">
-                <header class="section-header fade-in-up">
-                    <div class="yellow-bar" aria-hidden="true"></div>
-                    <h2>Kegiatan Rutin</h2>
-                </header>
-                
-                <div class="news-grid stagger-children">
-                    <article class="news-card">
-                        <div class="news-image">
-                            <i class="fas fa-road"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-date">28 Juli 2025</div>
-                            <h3>Penyelesaian Proyek Jalan Tol Trans Jawa</h3>
-                            <p>JJC berhasil menyelesaikan pembangunan segmen tol Trans Jawa dengan kualitas internasional dan standar keamanan tertinggi. Proyek ini merupakan bagian dari program pemerintah dalam mengembangkan infrastruktur transportasi nasional.</p>
-                            <a href="#" class="read-more-btn">
-                                Baca Selengkapnya
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <div class="news-image">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-date">25 Juli 2025</div>
-                            <h3>Penghargaan Konstruksi Terbaik 2025</h3>
-                            <p>JJC meraih penghargaan sebagai perusahaan konstruksi infrastruktur terbaik tahun 2025 dari Kementerian PUPR. Penghargaan ini diberikan atas dedikasi dan inovasi dalam pengembangan infrastruktur nasional.</p>
-                            <a href="#" class="read-more-btn">
-                                Baca Selengkapnya
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <div class="news-image">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-date">22 Juli 2025</div>
-                            <h3>Implementasi Teknologi Ramah Lingkungan</h3>
-                            <p>Komitmen JJC dalam menggunakan teknologi berkelanjutan pada setiap proyek konstruksi. Implementasi material ramah lingkungan dan sistem manajemen limbah yang terintegrasi.</p>
-                            <a href="#" class="read-more-btn">
-                                Baca Selengkapnya
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <div class="news-image">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-date">20 Juli 2025</div>
-                            <h3>Pelatihan SDM untuk Peningkatan Kompetensi</h3>
-                            <p>Program pelatihan intensif untuk karyawan JJC dalam rangka meningkatkan kompetensi dan profesionalisme. Pelatihan mencakup teknologi terbaru dan standar keselamatan kerja.</p>
-                            <a href="#" class="read-more-btn">
-                                Baca Selengkapnya
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <div class="news-image">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-date">18 Juli 2025</div>
-                            <h3>Kerjasama Strategis dengan Mitra Internasional</h3>
-                            <p>Penandatanganan MoU dengan perusahaan konstruksi internasional untuk pengembangan teknologi dan transfer pengetahuan dalam proyek infrastruktur skala besar.</p>
-                            <a href="#" class="read-more-btn">
-                                Baca Selengkapnya
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <div class="news-image">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-date">15 Juli 2025</div>
-                            <h3>Pertumbuhan Kinerja Operasional Q2 2025</h3>
-                            <p>Laporan kinerja operasional JJC menunjukkan pertumbuhan positif di kuartal kedua 2025. Peningkatan efisiensi dan produktivitas dalam berbagai proyek infrastruktur.</p>
-                            <a href="#" class="read-more-btn">
-                                Baca Selengkapnya
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Enhanced Footer -->
-    <footer class="footer" role="contentinfo">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -198,27 +161,19 @@
                     
                     <div class="footer-column">
                         <h3>ALAMAT</h3>
-                        <address>
-                            Jl. Teuku Umar No.1, RT.002/RW.001<br>
-                            Sepanjang Jaya, Kec. Rawalumbu<br>
-                            Kota Bekasi, Jawa Barat 17114
-                        </address>
+                        <p>Jl. Teuku Umar No.1, RT.002/RW.001, Sepanjang Jaya, Kec. Rawalumbu, Kota Bekasi, Jawa Barat 17114.</p>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2025 PT JJC - Jasa Marga Group. All rights reserved.</p>
+                    © 2025 PT JJC - Jasa Marga Group.
                 </div>
-                <div class="social-icons" role="complementary" aria-label="Footer social media links">
-                    <a href="#" aria-label="YouTube JJC"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
@@ -226,4 +181,4 @@
 
     <script src="../assets/js/main.js"></script>
 </body>
-</html>
+</html> 
