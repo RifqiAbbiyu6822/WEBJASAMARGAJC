@@ -7,57 +7,67 @@
     <link rel="stylesheet" href="../style/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="pages news-page">
-    <!-- Header -->
-    <header class="header">
+<body class="sub-page">
+    <!-- Enhanced Header -->
+    <header class="header" role="banner" id="header">
         <div class="container">
-            <nav class="main-nav">
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <!-- Logo -->
                 <div class="logo">
-                    <a href="../index.html">
-                        <img src="../assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img">
-                    </a>
+                    <div class="logo-transparent">
+                        <img src="../assets/js/img/logoJJCW.png" alt="JJCW Logo" class="logo-img">
+                    </div>
+                    <div class="logo-scrolled">
+                        <img src="../assets/js/img/logoJJCW.png" alt="JJCW Logo" class="logo-img">
+                    </div>
                 </div>
                 
-                <div class="nav-container">
-                    <ul class="nav-menu">
-                        <li><a href="../index.html">BERANDA</a></li>
-                        <li><a href="tentang.html">PROFIL PERUSAHAAN</a></li>
-                        <li><a href="layanan.html">LAYANAN</a></li>
-                        <li><a href="berita.html" class="active">KEGIATAN</a></li>
-                        <li><a href="kontak.html">KONTAK KAMI</a></li>
-                    </ul>
-                    
-                    <div class="social-icons">
-                        <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    
-                    <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
+                <!-- Navigation Menu -->
+                <ul class="nav-menu">
+                    <li><a href="../index.html">BERANDA</a></li>
+                    <li><a href="tentang.html">PROFIL PERUSAHAAN</a></li>
+                    <li><a href="layanan.html">LAYANAN</a></li>
+                    <li><a href="berita.html" class="active">KEGIATAN</a></li>
+                    <li><a href="kontak.html">KONTAK KAMI</a></li>
+                </ul>
+                
+                <!-- Social Icons -->
+                <div class="social-icons" role="complementary" aria-label="Social media links">
+                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <div class="page-header">
+    <!-- Enhanced Page Header with Banner -->
+    <section class="page-header news-page" role="banner">
         <div class="container">
-            <div class="breadcrumb">
-                <nav class="breadcrumb-nav">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <div class="breadcrumb-nav">
                     <a href="../index.html">Beranda</a>
-                    <span class="separator">/</span>
-                    <span class="current">Kegiatan</span>
-                </nav>
-            </div>
-            <div class="page-header-content">
+                    <span class="separator" aria-hidden="true">/</span>
+                    <span class="current" aria-current="page">Kegiatan</span>
+                </div>
+            </nav>
+            
+            <div class="page-header-content fade-in-up">
                 <h1 class="page-title">Kegiatan & Berita</h1>
                 <p class="page-subtitle">Temukan informasi terbaru tentang aktivitas dan pencapaian JJC dalam membangun infrastruktur berkualitas.</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- News Section -->
     <section class="news-detail">

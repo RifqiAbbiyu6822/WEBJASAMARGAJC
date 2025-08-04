@@ -2,6 +2,72 @@
 // Maintaining existing functionality while adding modern interactions
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Enhanced Navbar Scroll Effect - Updated for new design
+    const enhanceNavbarScrollEffect = () => {
+        const header = document.getElementById('header');
+        if (!header) return;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    };
+
+    // Enhanced Mobile Menu Toggle - Updated for new design
+    const enhanceMobileMenuToggle = () => {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (!mobileMenuToggle || !navMenu) return;
+
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking on nav links
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    };
+
+    // Initialize new navbar functions
+    enhanceNavbarScrollEffect();
+    enhanceMobileMenuToggle();
+
     // Enhanced Mobile Menu with Better UX
     const createEnhancedMobileMenu = () => {
         const navMenu = document.querySelector('.nav-menu');
@@ -149,11 +215,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const scrollDelta = Math.abs(scrollTop - lastScrollTop);
             
-            // Add scrolled class with threshold
-            if (scrollTop > 100) {
-                header.classList.add('scrolled');
+            // Determine if it's home page
+            const isHomePage = document.body.classList.contains('home-page') || 
+                              window.location.pathname === '/' || 
+                              window.location.pathname.includes('index.html');
+            
+            if (isHomePage) {
+                // Home page behavior: transparent when at top, blue when scrolled
+                if (scrollTop > 80) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             } else {
-                header.classList.remove('scrolled');
+                // Sub-pages: always blue background
+                header.classList.add('scrolled');
             }
             
             // Add scroll direction classes for additional styling
@@ -314,29 +390,94 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced Intersection Observer for Animations
     const enhanceScrollAnimations = () => {
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: [0.1, 0.2, 0.3],
+            rootMargin: '0px 0px -30px 0px'
         };
         
-        const observer = new IntersectionObserver((entries) => {
+        const cardObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
+                    const target = entry.target;
+                    target.classList.add('animate-in');
+                    
+                    // Add modern card entrance animation
+                    if (target.classList.contains('service-card') || 
+                        target.classList.contains('news-card') ||
+                        target.classList.contains('shareholder-card') ||
+                        target.classList.contains('akhlak-item') ||
+                        target.classList.contains('vision-box') ||
+                        target.classList.contains('mission-box')) {
+                        
+                        target.style.opacity = '0';
+                        target.style.transform = 'translateY(40px) scale(0.95)';
+                        
+                        // Smooth entrance animation
+                        setTimeout(() => {
+                            target.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                            target.style.opacity = '1';
+                            target.style.transform = 'translateY(0) scale(1)';
+                        }, 50);
+                    }
                     
                     // Add stagger animation for child elements
                     const children = entry.target.querySelectorAll('.stagger-children > *');
                     children.forEach((child, index) => {
+                        child.style.opacity = '0';
+                        child.style.transform = 'translateY(20px)';
                         setTimeout(() => {
+                            child.style.transition = 'all 0.4s ease-out';
                             child.style.opacity = '1';
                             child.style.transform = 'translateY(0)';
-                        }, index * 100);
+                        }, index * 80 + 100);
                     });
+                    
+                    // Unobserve after animation to improve performance
+                    cardObserver.unobserve(target);
                 }
             });
         }, observerOptions);
         
-        // Observe sections and cards
-        const elementsToObserve = document.querySelectorAll(`
+        // Enhanced section observer for larger elements
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                    
+                    // Animate section headers
+                    const header = entry.target.querySelector('.section-header');
+                    if (header) {
+                        header.style.opacity = '0';
+                        header.style.transform = 'translateY(-20px)';
+                        setTimeout(() => {
+                            header.style.transition = 'all 0.5s ease-out';
+                            header.style.opacity = '1';
+                            header.style.transform = 'translateY(0)';
+                        }, 100);
+                    }
+                    
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        // Observe all cards and sections
+        const cardsToObserve = document.querySelectorAll(`
+            .service-card,
+            .news-card,
+            .shareholder-card,
+            .akhlak-item,
+            .vision-box,
+            .mission-box,
+            .emergency-card,
+            .certification-card,
+            .stat-card,
+            .testimonial-card
+        `);
+        
+        const sectionsToObserve = document.querySelectorAll(`
             .about-section,
             .services-section,
             .news-section,
@@ -344,13 +485,30 @@ document.addEventListener('DOMContentLoaded', function() {
             .values-section,
             .shareholders-section,
             .contact-section,
-            .service-card,
-            .news-card,
-            .emergency-card,
-            .shareholder-card
+            .about-overview,
+            .strategy-section
         `);
         
-        elementsToObserve.forEach(el => observer.observe(el));
+        cardsToObserve.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(40px) scale(0.95)';
+            cardObserver.observe(card);
+        });
+        
+        sectionsToObserve.forEach(section => sectionObserver.observe(section));
+        
+        // Enhanced parallax effect for hero sections
+        const parallaxElements = document.querySelectorAll('.hero-background, .page-header');
+        if (parallaxElements.length > 0 && window.innerWidth > 768) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                
+                parallaxElements.forEach(element => {
+                    element.style.transform = `translateY(${rate}px)`;
+                });
+            }, { passive: true });
+        }
     };
     
     enhanceScrollAnimations();
@@ -836,6 +994,16 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('  - Enhanced form interactions');
     console.log('  - Keyboard navigation support');
     console.log('  - Loading states and error handling');
+    
+    // Force show all content after page load
+    setTimeout(() => {
+        const allContent = document.querySelectorAll('.about-section, .services-section, .news-section, .vision-mission-section, .values-section, .shareholders-section, .contact-section, .about-overview, .strategy-section, .service-card, .news-card, .akhlak-item, .shareholder-card, .vision-box, .mission-box');
+        allContent.forEach(el => {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+            el.style.transform = 'translateY(0)';
+        });
+    }, 500);
 });
 
 // Enhanced CSS animations and utilities to be added via JavaScript

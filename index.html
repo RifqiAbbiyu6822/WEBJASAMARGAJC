@@ -35,27 +35,31 @@
     }
     </script>
 </head>
-<body>
+<body class="home-page">
     <!-- Enhanced Header -->
-    <header class="header" role="banner">
+    <header class="header" role="banner" id="header">
         <div class="container">
             <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <!-- Logo -->
                 <div class="logo">
-                    <a href="#home">
-                        <img src="assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img">
-                    </a>
+                    <div class="logo-transparent">
+                        <img src="assets/js/img/logoJJCW.png" alt="JJCW Logo" class="logo-img">
+                    </div>
+                    <div class="logo-scrolled">
+                        <img src="assets/js/img/logoJJCW.png" alt="JJCW Logo" class="logo-img">
+                    </div>
                 </div>
                 
-                <div class="nav-container">
-                    <ul class="nav-menu">
-                        <li><a href="#home" aria-current="page" class="active">BERANDA</a></li>
-                        <li><a href="pages/tentang.html">PROFIL PERUSAHAAN</a></li>
-                        <li><a href="pages/layanan.html">LAYANAN</a></li>
-                        <li><a href="pages/berita.html">KEGIATAN</a></li>   
-                        <li><a href="pages/kontak.html">KONTAK KAMI</a></li>
-                    </ul>
-                </div>
+                <!-- Navigation Menu -->
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">BERANDA</a></li>
+                    <li><a href="pages/tentang.html">PROFIL PERUSAHAAN</a></li>
+                    <li><a href="pages/layanan.html">LAYANAN</a></li>
+                    <li><a href="pages/berita.html">KEGIATAN</a></li>   
+                    <li><a href="pages/kontak.html">KONTAK KAMI</a></li>
+                </ul>
                 
+                <!-- Social Icons -->
                 <div class="social-icons" role="complementary" aria-label="Social media links">
                     <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
                         <i class="fab fa-tiktok"></i>
@@ -65,11 +69,12 @@
                     </a>
                 </div>
 
-                <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
+                <!-- Mobile Menu Toggle -->
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
@@ -194,131 +199,10 @@
             </div>
         </section>
 
-        <!-- Strategy Section -->
-        <section class="strategy-section" aria-label="Company strategy">
-            <div class="container">
-                <header class="section-header fade-in-up">
-                    <div class="yellow-bar" aria-hidden="true"></div>
-                    <h2>STRATEGI KAMI</h2>
-                </header>
-                <div class="strategy-content fade-in-up">
-                    <p>JJC mengembangkan strategi bisnis yang berkelanjutan dengan fokus pada inovasi teknologi, pengembangan SDM berkualitas, dan kemitraan strategis. Kami berkomitmen untuk memberikan layanan konstruksi infrastruktur terbaik dengan standar internasional sambil mendukung pembangunan ekonomi nasional.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Vision Mission Section -->
-        <section class="vision-mission-section" aria-label="Vision and mission">
-            <div class="container">
-                <header class="section-header fade-in-up">
-                    <div class="yellow-bar" aria-hidden="true"></div>
-                    <h2>VISI &amp; MISI</h2>
-                </header>
-                <div class="vm-container">
-                    <div class="vision-box fade-in-left">
-                        <h3>Visi</h3>
-                        <p>Menjadi kontraktor pemeliharaan jalan tol yang profesional, terpercaya, dan terkemuka.</p>
-                    </div>
-                    
-                    <div class="mission-box fade-in-right">
-                        <h3>Misi</h3>
-                        <ol>
-                            <li>Menyediakan layanan konstruksi infrastruktur transportasi berkualitas tinggi</li>
-                            <li>Mengembangkan inovasi teknologi konstruksi yang ramah lingkungan</li>
-                            <li>Membangun kemitraan strategis untuk pertumbuhan berkelanjutan</li>
-                            <li>Meningkatkan kompetensi SDM melalui pengembangan berkelanjutan</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Values Section -->
-        <section class="values-section" aria-label="Company values">
-            <div class="container">
-                <header class="section-header fade-in-up">
-                    <div class="yellow-bar" aria-hidden="true"></div>
-                    <h2>TATA NILAI</h2>
-                </header>
-                <div class="values-content">
-                    <div class="akhlak-main fade-in-left">
-                        <img src="assets/js/img/AKHLAK.png" alt="Logo AKHLAK - Amanah Kompeten Harmonis Loyal Adaptif Kolaboratif" class="akhlak-logo">
-                        <p>Amanah. Kompeten. Harmonis. Loyal. Adaptif. Kolaboratif.</p>
-                    </div>
-                    
-                    <div class="akhlak-details stagger-children">
-                        <div class="akhlak-item">
-                            <h3><span class="akhlak-letter">A</span> AMANAH</h3>
-                            <p>Memegang teguh kepercayaan yang diberikan</p>
-                        </div>
-                        <div class="akhlak-item">
-                            <h3><span class="akhlak-letter">K</span> KOMPETEN</h3>
-                            <p>Terus belajar dan mengembangkan kapabilitas</p>
-                        </div>
-                        <div class="akhlak-item">
-                            <h3><span class="akhlak-letter">H</span> HARMONIS</h3>
-                            <p>Saling peduli dan menghargai perbedaan</p>
-                        </div>
-                        <div class="akhlak-item">
-                            <h3><span class="akhlak-letter">L</span> LOYAL</h3>
-                            <p>Berdedikasi dan mengutamakan kepentingan bangsa dan negara</p>
-                        </div>
-                        <div class="akhlak-item">
-                            <h3><span class="akhlak-letter">A</span> ADAPTIF</h3>
-                            <p>Terus berinovasi dan antusias dalam menggerakkan ataupun menghadapi perubahan</p>
-                        </div>
-                        <div class="akhlak-item">
-                            <h3><span class="akhlak-letter">K</span> KOLABORATIF</h3>
-                            <p>Membangun kerjasama yang sinergis</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Shareholders Section -->
-        <section class="shareholders-section" aria-label="Company shareholders">
-            <div class="container">
-                <header class="section-header fade-in-up">
-                    <div class="yellow-bar" aria-hidden="true"></div>
-                    <h2>PEMEGANG SAHAM</h2>
-                </header>
-                <div class="shareholders-grid stagger-children">
-                    <div class="shareholder-card">
-                        <div class="shareholder-logo">
-                            <img src="assets/js/img/logoMUN.png" alt="Logo MUN" class="shareholder-img">
-                        </div>
-                        <h3>MUN</h3>
-                        <div class="share-percentage">40%</div>
-                        <p>Pemegang saham mayoritas dengan komitmen dalam pengembangan infrastruktur transportasi Indonesia.</p>
-                    </div>
-                    
-                    <div class="shareholder-card">
-                        <div class="shareholder-logo">
-                            <img src="assets/js/img/logoJTT.png" alt="Logo JTT" class="shareholder-img">
-                        </div>
-                        <h3>JTT</h3>
-                        <div class="share-percentage">40%</div>
-                        <p>Pemegang saham yang fokus pada inovasi dan pengembangan teknologi konstruksi.</p>
-                    </div>
-                    
-                    <div class="shareholder-card">
-                        <div class="shareholder-logo">
-                            <img src="assets/js/img/logoRSP.png" alt="Logo RSP" class="shareholder-img">
-                        </div>
-                        <h3>RSP</h3>
-                        <div class="share-percentage">20%</div>
-                        <p>Pemegang saham strategis yang berkontribusi dalam pengembangan bisnis dan teknologi.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- News Section -->
         <section class="news-section" id="news" aria-label="Latest news and activities">
             <div class="container">
                 <header class="section-header fade-in-up">
-                    <div class="yellow-bar" aria-hidden="true"></div>
                     <h2>KEGIATAN RUTIN JJC</h2>
                 </header>
                 
