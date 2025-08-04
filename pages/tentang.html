@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="pages about-page">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,30 +24,35 @@
     }
     </script>
 </head>
-<body>
+<body class="pages about-page">
     <!-- Enhanced Header -->
     <header class="header" role="banner">
         <div class="container">
             <nav class="main-nav" role="navigation" aria-label="Main navigation">
                 <div class="logo">
-                    <img src="../assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img logo-scrolled">
+                    <a href="../index.html" aria-label="JJC Homepage">
+                        <img src="../assets/js/img/logoJJC.png" alt="JJC Logo" class="logo-img logo-transparent">
+                        <img src="../assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img logo-scrolled">
+                    </a>
                 </div>
                 
-                <ul class="nav-menu">
-                    <li><a href="../index.html">BERANDA</a></li>
-                    <li><a href="tentang.html" aria-current="page" class="active">PROFIL PERUSAHAAN</a></li>
-                    <li><a href="layanan.html">LAYANAN</a></li>
-                    <li><a href="berita.html">KEGIATAN</a></li>
-                    <li><a href="kontak.html">KONTAK KAMI</a></li>
-                </ul>
-                
-                <div class="social-icons" role="complementary" aria-label="Social media links">
-                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a href="../index.html">BERANDA</a></li>
+                        <li><a href="tentang.html" aria-current="page" class="active">PROFIL PERUSAHAAN</a></li>
+                        <li><a href="layanan.html">LAYANAN</a></li>
+                        <li><a href="berita.html">KEGIATAN</a></li>
+                        <li><a href="kontak.html">KONTAK KAMI</a></li>
+                    </ul>
+                    
+                    <div class="social-icons" role="complementary" aria-label="Social media links">
+                        <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -84,10 +89,41 @@
                 <div class="about-content">
                     <div class="about-text fade-in-left">
                         <p>Jasamarga Jalan Layang Cikampek (JJC) adalah anak perusahaan PT Jasa Marga (Persero) Tbk yang bertanggung jawab atas pengoperasian Jalan Layang Sheikh Mohammed bin Zayed (MBZ) atau yang sebelumnya dikenal sebagai Jalan Tol Jakarta-Cikampek II (Elevated). Jalan tol layang sepanjang 36,84 kilometer ini membentang dari Cikunir hingga Karawang Barat, dibangun di atas sebagian Jalan Tol Jakarta-Cikampek eksisting, dan bertujuan untuk memisahkan lalu lintas jarak jauh dari lalu lintas lokal guna mengurangi kemacetan dan mempersingkat waktu tempuh di salah satu ruas jalan tol terpadat di Indonesia tersebut.</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">2019</div>
+                                <div class="timeline-content">
+                                    <h3>Pendirian Perusahaan</h3>
+                                    <p>PT JJC didirikan sebagai anak perusahaan PT Jasa Marga untuk mengelola Jalan Layang MBZ</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2021</div>
+                                <div class="timeline-content">
+                                    <h3>Operasional Penuh</h3>
+                                    <p>Mulai beroperasi penuh dengan layanan pemeliharaan dan pengelolaan jalan tol layang</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2023</div>
+                                <div class="timeline-content">
+                                    <h3>Ekspansi Layanan</h3>
+                                    <p>Mengembangkan layanan konstruksi dan pemeliharaan infrastruktur jalan</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2025</div>
+                                <div class="timeline-content">
+                                    <h3>Sertifikasi ISO</h3>
+                                    <p>Meraih sertifikasi ISO untuk sistem manajemen mutu dan lingkungan</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="about-image fade-in-right">
-                        <img src="../assets/js/img/petaMBZ.png" alt="Peta Jalan Layang MBZ yang dikelola JJC" class="mbz-map">
+                        <img src="../assets/js/img/petaMBZ.png" alt="Peta Jalan Layang MBZ yang dikelola JJC" class="mbz-map" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -101,7 +137,132 @@
                     <h2>STRATEGI KAMI</h2>
                 </header>
                 <div class="strategy-content fade-in-up">
-                    <p>JJC mengembangkan strategi bisnis yang berkelanjutan dengan fokus pada inovasi teknologi, pengembangan SDM berkualitas, dan kemitraan strategis. Kami berkomitmen untuk memberikan layanan konstruksi infrastruktur terbaik dengan standar internasional sambil mendukung pembangunan ekonomi nasional.</p>
+                    <p>JJC mengembangkan strategi bisnis yang berkelanjutan dengan fokus pada inovasi teknologi, pengembangan SDM berkualitas, dan kemitraan strategis. Kami berkomitmen untuk memberikan layanan konstruksi infrastruktur terbaik dengan standar internasional sambil mendukung pembangunan ekonomi nasional melalui peningkatan konektivitas dan efisiensi transportasi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organization Structure Section -->
+        <section class="organization-section" aria-label="Organization structure">
+            <div class="container">
+                <header class="section-header fade-in-up">
+                    <div class="yellow-bar" aria-hidden="true"></div>
+                    <h2>STRUKTUR ORGANISASI</h2>
+                </header>
+                
+                <div class="org-chart">
+                    <div class="org-level">
+                        <div class="org-box ceo">
+                            <h3>Direktur Utama</h3>
+                            <p>Chief Executive Officer</p>
+                        </div>
+                    </div>
+                    <div class="org-level">
+                        <div class="org-box">
+                            <h3>Direktur Operasi</h3>
+                            <p>Operations Director</p>
+                        </div>
+                        <div class="org-box">
+                            <h3>Direktur Keuangan</h3>
+                            <p>Finance Director</p>
+                        </div>
+                        <div class="org-box">
+                            <h3>Direktur Teknik</h3>
+                            <p>Technical Director</p>
+                        </div>
+                    </div>
+                    <div class="org-level">
+                        <div class="org-box">
+                            <h3>Manajer SDM</h3>
+                            <p>HR Manager</p>
+                        </div>
+                        <div class="org-box">
+                            <h3>Manajer Operasional</h3>
+                            <p>Operations Manager</p>
+                        </div>
+                        <div class="org-box">
+                            <h3>Manajer Keuangan</h3>
+                            <p>Finance Manager</p>
+                        </div>
+                        <div class="org-box">
+                            <h3>Manajer Teknik</h3>
+                            <p>Technical Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Sections -->
+        <section class="commissioners-section" aria-label="Board of commissioners">
+            <div class="container">
+                <header class="section-header fade-in-up">
+                    <div class="yellow-bar" aria-hidden="true"></div>
+                    <h2>DEWAN KOMISARIS</h2>
+                </header>
+                
+                <div class="leadership-grid stagger-children">
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        </div>
+                        <h3>Ir. Ahmad Sutanto, M.T.</h3>
+                        <p>Komisaris Utama</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        </div>
+                        <h3>Dr. Siti Nurhaliza, S.E., M.M.</h3>
+                        <p>Komisaris</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        </div>
+                        <h3>Prof. Dr. Bambang Wijaya, S.T., M.Eng.</h3>
+                        <p>Komisaris Independen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="directors-section" aria-label="Board of directors">
+            <div class="container">
+                <header class="section-header fade-in-up">
+                    <div class="yellow-bar" aria-hidden="true"></div>
+                    <h2>DEWAN DIREKSI</h2>
+                </header>
+                
+                <div class="leadership-grid stagger-children">
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        </div>
+                        <h3>Ir. Budi Santoso, M.T.</h3>
+                        <p>Direktur Utama</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        </div>
+                        <h3>Dra. Maria Indira, M.M.</h3>
+                        <p>Direktur Operasi</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        </div>
+                        <h3>Ir. Agus Priatna, M.B.A.</h3>
+                        <p>Direktur Keuangan</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-photo">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        </div>
+                        <h3>Dr. Eng. Rahmat Hidayat, S.T., M.T.</h3>
+                        <p>Direktur Teknik</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -116,16 +277,17 @@
                 <div class="vm-container">
                     <div class="vision-box fade-in-left">
                         <h3>Visi</h3>
-                        <p>Menjadi kontraktor pemeliharaan jalan tol yang profesional, terpercaya, dan terkemuka.</p>
+                        <p>Menjadi kontraktor pemeliharaan jalan tol yang profesional, terpercaya, dan terkemuka di Indonesia dengan standar kualitas internasional.</p>
                     </div>
                     
                     <div class="mission-box fade-in-right">
                         <h3>Misi</h3>
                         <ol>
-                            <li>Menyediakan layanan konstruksi infrastruktur transportasi berkualitas tinggi</li>
-                            <li>Mengembangkan inovasi teknologi konstruksi yang ramah lingkungan</li>
-                            <li>Membangun kemitraan strategis untuk pertumbuhan berkelanjutan</li>
-                            <li>Meningkatkan kompetensi SDM melalui pengembangan berkelanjutan</li>
+                            <li>Menyediakan layanan konstruksi infrastruktur transportasi berkualitas tinggi dengan teknologi terdepan</li>
+                            <li>Mengembangkan inovasi teknologi konstruksi yang ramah lingkungan dan berkelanjutan</li>
+                            <li>Membangun kemitraan strategis untuk pertumbuhan berkelanjutan dan ekspansi bisnis</li>
+                            <li>Meningkatkan kompetensi SDM melalui pengembangan berkelanjutan dan pelatihan profesional</li>
+                            <li>Berkontribusi aktif dalam pembangunan infrastruktur nasional untuk kemajuan bangsa</li>
                         </ol>
                     </div>
                 </div>
@@ -141,34 +303,35 @@
                 </header>
                 <div class="values-content">
                     <div class="akhlak-main fade-in-left">
-                        <img src="../assets/js/img/AKHLAK.png" alt="Logo AKHLAK - Amanah Kompeten Harmonis Loyal Adaptif Kolaboratif" class="akhlak-logo">
+                        <img src="../assets/js/img/AKHLAK.png" alt="Logo AKHLAK - Amanah Kompeten Harmonis Loyal Adaptif Kolaboratif" class="akhlak-logo" loading="lazy">
+                        <h2>AKHLAK</h2>
                         <p>Amanah. Kompeten. Harmonis. Loyal. Adaptif. Kolaboratif.</p>
                     </div>
                     
                     <div class="akhlak-details stagger-children">
                         <div class="akhlak-item">
                             <h3><span class="akhlak-letter">A</span> AMANAH</h3>
-                            <p>Memegang teguh kepercayaan yang diberikan</p>
+                            <p>Memegang teguh kepercayaan yang diberikan dengan penuh tanggung jawab dan integritas dalam setiap tindakan dan keputusan bisnis.</p>
                         </div>
                         <div class="akhlak-item">
                             <h3><span class="akhlak-letter">K</span> KOMPETEN</h3>
-                            <p>Terus belajar dan mengembangkan kapabilitas</p>
+                            <p>Terus belajar dan mengembangkan kapabilitas untuk memberikan hasil kerja yang berkualitas tinggi dan sesuai standar profesional.</p>
                         </div>
                         <div class="akhlak-item">
                             <h3><span class="akhlak-letter">H</span> HARMONIS</h3>
-                            <p>Saling peduli dan menghargai perbedaan</p>
+                            <p>Saling peduli dan menghargai perbedaan untuk menciptakan lingkungan kerja yang kondusif dan produktif.</p>
                         </div>
                         <div class="akhlak-item">
                             <h3><span class="akhlak-letter">L</span> LOYAL</h3>
-                            <p>Berdedikasi dan mengutamakan kepentingan bangsa dan negara</p>
+                            <p>Berdedikasi dan mengutamakan kepentingan bangsa dan negara dalam setiap aktivitas bisnis dan pengembangan infrastruktur.</p>
                         </div>
                         <div class="akhlak-item">
                             <h3><span class="akhlak-letter">A</span> ADAPTIF</h3>
-                            <p>Terus berinovasi dan antusias dalam menggerakkan ataupun menghadapi perubahan</p>
+                            <p>Terus berinovasi dan antusias dalam menggerakkan ataupun menghadapi perubahan untuk kemajuan perusahaan.</p>
                         </div>
                         <div class="akhlak-item">
                             <h3><span class="akhlak-letter">K</span> KOLABORATIF</h3>
-                            <p>Membangun kerjasama yang sinergis</p>
+                            <p>Membangun kerjasama yang sinergis dengan berbagai pihak untuk mencapai tujuan bersama yang berkelanjutan.</p>
                         </div>
                     </div>
                 </div>
@@ -179,34 +342,35 @@
         <section class="shareholders-section" aria-label="Company shareholders">
             <div class="container">
                 <header class="section-header fade-in-up">
+                    <div class="yellow-bar" aria-hidden="true"></div>
                     <h2>PEMEGANG SAHAM</h2>
                 </header>
                 <div class="shareholders-grid stagger-children">
                     <div class="shareholder-card">
                         <div class="shareholder-logo">
-                            <img src="../assets/js/img/logoMUN.png" alt="Logo MUN" class="shareholder-img">
+                            <img src="../assets/js/img/logoMUN.png" alt="Logo MUN" class="shareholder-img" loading="lazy">
                         </div>
                         <h3>MUN</h3>
                         <div class="share-percentage">40%</div>
-                        <p>Pemegang saham mayoritas dengan komitmen dalam pengembangan infrastruktur transportasi Indonesia.</p>
+                        <p>Pemegang saham mayoritas dengan komitmen kuat dalam pengembangan infrastruktur transportasi Indonesia dan peningkatan konektivitas nasional.</p>
                     </div>
                     
                     <div class="shareholder-card">
                         <div class="shareholder-logo">
-                            <img src="../assets/js/img/logoJTT.png" alt="Logo JTT" class="shareholder-img">
+                            <img src="../assets/js/img/logoJTT.png" alt="Logo JTT" class="shareholder-img" loading="lazy">
                         </div>
                         <h3>JTT</h3>
                         <div class="share-percentage">40%</div>
-                        <p>Pemegang saham yang fokus pada inovasi dan pengembangan teknologi konstruksi.</p>
+                        <p>Pemegang saham strategis yang fokus pada inovasi dan pengembangan teknologi konstruksi modern untuk masa depan infrastruktur.</p>
                     </div>
                     
                     <div class="shareholder-card">
                         <div class="shareholder-logo">
-                            <img src="../assets/js/img/logoRSP.png" alt="Logo RSP" class="shareholder-img">
+                            <img src="../assets/js/img/logoRSP.png" alt="Logo RSP" class="shareholder-img" loading="lazy">
                         </div>
                         <h3>RSP</h3>
                         <div class="share-percentage">20%</div>
-                        <p>Pemegang saham strategis yang berkontribusi dalam pengembangan bisnis dan teknologi.</p>
+                        <p>Pemegang saham pendukung yang berkontribusi dalam pengembangan bisnis dan teknologi untuk kemajuan perusahaan.</p>
                     </div>
                 </div>
             </div>
@@ -240,9 +404,10 @@
                     <div class="footer-column">
                         <h3>ALAMAT</h3>
                         <address>
-                            Jl. Teuku Umar No.1, RT.002/RW.001<br>
-                            Sepanjang Jaya, Kec. Rawalumbu<br>
-                            Kota Bekasi, Jawa Barat 17114
+                            Gedung C Graha Service Provider, Lantai 1<br>
+                            Kantor Pusat PT Jasa Marga (Persero) Tbk<br>
+                            Plaza Tol Taman Mini Indonesia Indah<br>
+                            Jakarta 13550
                         </address>
                     </div>
                 </div>

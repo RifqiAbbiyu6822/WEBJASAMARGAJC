@@ -12,6 +12,17 @@
     <link rel="preload" href="style/main.css" as="style">
     <link rel="preload" href="assets/js/main.js" as="script">
     
+    <!-- Enhanced CSS Integration -->
+    <style>
+        /* Critical CSS for immediate loading */
+        body { margin: 0; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+        .header { position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .hero { min-height: 100vh; }
+        .loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e3a8a, #3b82f6); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .loading-spinner { width: 60px; height: 60px; border: 4px solid rgba(255, 255, 255, 0.2); border-top: 4px solid #fbbf24; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+    
     <link rel="stylesheet" href="style/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
@@ -35,30 +46,46 @@
     }
     </script>
 </head>
-<body>
+<body class="home">
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" aria-hidden="true">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
     <!-- Enhanced Header -->
     <header class="header" role="banner">
         <div class="container">
             <nav class="main-nav" role="navigation" aria-label="Main navigation">
                 <div class="logo">
-                    <img src="assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img logo-scrolled">
+                    <a href="#home" aria-label="JJC Homepage">
+                        <img src="assets/js/img/logoJJC.png" alt="JJC Logo" class="logo-img logo-transparent">
+                        <img src="assets/js/img/logoJJCW.png" alt="JJC Logo" class="logo-img logo-scrolled">
+                    </a>
                 </div>
                 
-                <ul class="nav-menu">
-                    <li><a href="#home" aria-current="page">BERANDA</a></li>
-                    <li><a href="pages/tentang.html">PROFIL PERUSAHAAN</a></li>
-                    <li><a href="pages/layanan.html">LAYANAN</a></li>
-                    <li><a href="pages/berita.html">KEGIATAN</a></li>   
-                    <li><a href="pages/kontak.html">KONTAK KAMI</a></li>
-                </ul>
-                
-                <div class="social-icons" role="complementary" aria-label="Social media links">
-                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a href="#home" aria-current="page">BERANDA</a></li>
+                        <li><a href="pages/tentang.html">PROFIL PERUSAHAAN</a></li>
+                        <li><a href="pages/layanan.html">LAYANAN</a></li>
+                        <li><a href="pages/berita.html">KEGIATAN</a></li>   
+                        <li><a href="pages/kontak.html">KONTAK KAMI</a></li>
+                    </ul>
+                    
+                    <div class="social-icons" role="complementary" aria-label="Social media links">
+                        <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -69,8 +96,9 @@
         <!-- Hero Section -->
         <section class="hero" id="home" aria-label="Hero section">
             <div class="hero-background">
-                <video autoplay muted loop playsinline class="hero-video" aria-hidden="true">
+                <video autoplay muted loop playsinline class="hero-video" aria-hidden="true" poster="assets/js/img/hero-poster.jpg">
                     <source src="assets/bgBERANDA.mp4" type="video/mp4">
+                    <source src="assets/bgBERANDA.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
                 <div class="hero-overlay">
@@ -78,11 +106,39 @@
                         <div class="hero-content fade-in-up">
                             <h1>PT Jasa Marga Jalan Layang Cikampek</h1>
                             <p>JJC merupakan anak perusahaan PT Jasa Marga (Persero) Tbk dengan komposisi saham 99,82% milik PT Jasa Marga (Persero) Tbk dan 0,18% persen milik Induk Koperasi Karyawan Jasa Marga.</p>
-                            <a href="pages/tentang.html" class="cta-btn">
+                            <a href="pages/tentang.html" class="cta-btn" aria-label="Learn more about JJC">
                                 <span>Selengkapnya</span>
-                                <i class="fas fa-arrow-right"></i>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Stats Section -->
+        <section class="hero-stats" aria-label="Company statistics">
+            <div class="container">
+                <div class="stats-content">
+                    <div class="stat-item">
+                        <i class="fas fa-road" aria-hidden="true"></i>
+                        <h3>36.84</h3>
+                        <span>KM Jalan Tol</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <h3>500+</h3>
+                        <span>Karyawan</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                        <h3>24/7</h3>
+                        <span>Operasional</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                        <h3>ISO</h3>
+                        <span>Certified</span>
                     </div>
                 </div>
             </div>
@@ -99,14 +155,14 @@
                 <div class="about-content">
                     <div class="about-text fade-in-left">
                         <p>PT JJC merupakan anak usaha dari PT Jasa Marga (Persero) Tbk, penyedia jalan bebas hambatan terbesar di Indonesia, di mana sebesar 99,82% kepemilikannya adalah milik Jasa Marga sebagai induk Perusahaan. Dikenal bergerak dalam bidang pemeliharaan jalan tol untuk mendukung lini bisnis utama Jasa Marga terutama dalam hal pemenuhan Standar Pelayanan Minimum (SPM) jalan tol.</p>
-                        <a href="pages/tentang.html" class="read-more-btn">
+                        <a href="pages/tentang.html" class="read-more-btn" aria-label="Read more about JJC">
                             <span>SELENGKAPNYA</span>
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </div>
                     
                     <div class="about-image fade-in-right">
-                        <img src="assets/js/img/petaMBZ.png" alt="Peta Jalan Layang MBZ" class="mbz-map">
+                        <img src="assets/js/img/petaMBZ.png" alt="Peta Jalan Layang MBZ yang dikelola JJC" class="mbz-map" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -126,8 +182,16 @@
                             <i class="fas fa-ambulance"></i>
                         </div>
                         <h3>Ambulance</h3>
-                        <p>Layanan ambulans 24/7 untuk pertolongan medis darurat di jalan tol dengan tim medis profesional.</p>
-                        <a href="pages/layanan.html" class="detail-btn">
+                        <p>Layanan ambulans 24/7 untuk pertolongan medis darurat di jalan tol dengan tim medis profesional dan peralatan lengkap.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Layanan 24 jam setiap hari</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Tim medis bersertifikat</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Peralatan medis lengkap</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Respons time cepat</li>
+                            </ul>
+                        </div>
+                        <a href="pages/layanan.html" class="detail-btn" aria-label="Learn more about ambulance service">
                             <span>Lihat Detail</span>
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </a>
@@ -138,8 +202,16 @@
                             <i class="fas fa-truck"></i>
                         </div>
                         <h3>Derek</h3>
-                        <p>Layanan derek untuk evakuasi kendaraan bermasalah dengan armada yang siap siaga di berbagai titik strategis.</p>
-                        <a href="pages/layanan.html" class="detail-btn">
+                        <p>Layanan derek untuk evakuasi kendaraan bermasalah dengan armada yang siap siaga di berbagai titik strategis jalan tol.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Armada derek modern</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Operator berpengalaman</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Tersedia di titik strategis</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Untuk semua jenis kendaraan</li>
+                            </ul>
+                        </div>
+                        <a href="pages/layanan.html" class="detail-btn" aria-label="Learn more about towing service">
                             <span>Lihat Detail</span>
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </a>
@@ -150,8 +222,21 @@
                             <i class="fas fa-store"></i>
                         </div>
                         <h3>Mobile Customer Service</h3>
-                        <p>Pengelolaan plaza tol dengan berbagai fasilitas seperti rest area, pom bensin, dan pusat layanan pengguna.</p>
-                        <a href="pages/layanan.html" class="detail-btn">
+                        <p>Layanan customer service mobile yang memberikan bantuan dan informasi kepada pengguna jalan tol di sepanjang ruas.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Informasi lalu lintas terkini</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Bantuan teknis kendaraan</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Pelayanan keluhan pengguna</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Koordinasi layanan darurat</li>
+                            </ul>
+                        </div>
+                        <div class="service-locations">
+                            <h4>Lokasi Layanan:</h4>
+                            <p>KM 21+000 dan KM 41+500 arah Cikampek<br>
+                            KM 39+500 dan KM 22+500 arah Jakarta</p>
+                        </div>
+                        <a href="pages/layanan.html" class="detail-btn" aria-label="Learn more about mobile customer service">
                             <span>Lihat Detail</span>
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </a>
@@ -162,8 +247,16 @@
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h3>Kamtib</h3>
-                        <p>Layanan keamanan dan ketertiban untuk menjaga keamanan pengguna jalan tol dan aset infrastruktur.</p>
-                        <a href="pages/layanan.html" class="detail-btn">
+                        <p>Layanan keamanan dan ketertiban untuk menjaga keamanan pengguna jalan tol dan aset infrastruktur dengan patroli 24 jam.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Patroli keamanan 24/7</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Monitoring CCTV terpusat</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Koordinasi dengan Polisi</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Pengamanan aset infrastruktur</li>
+                            </ul>
+                        </div>
+                        <a href="pages/layanan.html" class="detail-btn" aria-label="Learn more about security service">
                             <span>Lihat Detail</span>
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </a>
@@ -174,8 +267,16 @@
                             <i class="fas fa-life-ring"></i>
                         </div>
                         <h3>Rescue</h3>
-                        <p>Tim rescue profesional untuk penanganan kecelakaan dan situasi darurat dengan peralatan modern.</p>
-                        <a href="pages/layanan.html" class="detail-btn">
+                        <p>Tim rescue profesional untuk penanganan kecelakaan dan situasi darurat dengan peralatan modern dan terlatih.</p>
+                        <div class="service-features">
+                            <ul>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Tim rescue terlatih</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Peralatan rescue lengkap</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Penanganan kecelakaan cepat</li>
+                                <li><i class="fas fa-check-circle" aria-hidden="true"></i> Koordinasi multi-instansi</li>
+                            </ul>
+                        </div>
+                        <a href="pages/layanan.html" class="detail-btn" aria-label="Learn more about rescue service">
                             <span>Lihat Detail</span>
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </a>
@@ -188,6 +289,7 @@
         <section class="news-section" id="news" aria-label="Latest news and activities">
             <div class="container">
                 <header class="section-header fade-in-up">
+                    <div class="yellow-bar" aria-hidden="true"></div>
                     <h2>KEGIATAN RUTIN JJC</h2>
                 </header>
                 
@@ -198,8 +300,9 @@
                         </div>
                         <div class="news-content">
                             <time class="news-date" datetime="2025-07-02">02/07/2025 - 16:11</time>
-                            <h3>Perkuat Kualitas Infrastruktur Kota Jakarta, PT JJC Kembali Dapat Kepercayaan Dinas Bina Marga DKI Jakarta untuk Pekerjaan Hotmix Aspal PG Pak...</h3>
-                            <a href="pages/berita.html" class="read-more-btn">
+                            <h3>Perkuat Kualitas Infrastruktur Kota Jakarta, PT JJC Kembali Dapat Kepercayaan Dinas Bina Marga DKI Jakarta untuk Pekerjaan Hotmix Aspal</h3>
+                            <p>PT JJC terus berkomitmen dalam mendukung pembangunan infrastruktur berkualitas di DKI Jakarta melalui kerja sama strategis dengan Dinas Bina Marga.</p>
+                            <a href="pages/berita.html" class="read-more-btn" aria-label="Read full news article">
                                 <span>Selengkapnya</span>
                                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
@@ -213,7 +316,8 @@
                         <div class="news-content">
                             <time class="news-date" datetime="2025-06-26">26/06/2025 - 20:33</time>
                             <h3>Gelar Rapat Umum Pemegang Saham Tahunan (RUPST), PT JJC Catatkan Kinerja Positif Sepanjang Tahun 2024</h3>
-                            <a href="pages/berita.html" class="read-more-btn">
+                            <p>Dalam RUPST 2025, PT JJC melaporkan pencapaian kinerja yang positif dan rencana strategis untuk pengembangan bisnis di masa mendatang.</p>
+                            <a href="pages/berita.html" class="read-more-btn" aria-label="Read full news article">
                                 <span>Selengkapnya</span>
                                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
@@ -226,8 +330,9 @@
                         </div>
                         <div class="news-content">
                             <time class="news-date" datetime="2024-11-01">01/11/2024 - 17:07</time>
-                            <h3>PRESS RELEASE PT JJC No. 04/2024 Tanggal 01 November 2024 PT JJC Integrasikan Sistem...</h3>
-                            <a href="pages/berita.html" class="read-more-btn">
+                            <h3>PRESS RELEASE PT JJC No. 04/2024 - PT JJC Integrasikan Sistem Manajemen Terpadu</h3>
+                            <p>PT JJC mengumumkan integrasi sistem manajemen terpadu untuk meningkatkan efisiensi operasional dan kualitas pelayanan.</p>
+                            <a href="pages/berita.html" class="read-more-btn" aria-label="Read full news article">
                                 <span>Selengkapnya</span>
                                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
@@ -240,8 +345,9 @@
                         </div>
                         <div class="news-content">
                             <time class="news-date" datetime="2024-10-24">24/10/2024 - 16:56</time>
-                            <h3>PT JJC hadir dalam acara Korea-Indonesia Business Networking 2024</h3>
-                            <a href="pages/berita.html" class="read-more-btn">
+                            <h3>PT JJC Hadir dalam Acara Korea-Indonesia Business Networking 2024</h3>
+                            <p>Partisipasi aktif PT JJC dalam forum bisnis internasional menunjukkan komitmen perusahaan dalam mengembangkan kerja sama global.</p>
+                            <a href="pages/berita.html" class="read-more-btn" aria-label="Read full news article">
                                 <span>Selengkapnya</span>
                                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
@@ -250,7 +356,7 @@
                 </div>
                 
                 <div class="news-more fade-in-up">
-                    <a href="pages/berita.html" class="more-news-btn">
+                    <a href="pages/berita.html" class="more-news-btn" aria-label="View all news and activities">
                         <span>Lihat Kegiatan Lainnya</span>
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
@@ -312,6 +418,25 @@
         </div>
     </footer>
 
+    <!-- Enhanced JavaScript -->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Performance & Analytics (if needed) -->
+    <script>
+        // Page Load Performance
+        window.addEventListener('load', () => {
+            document.body.classList.add('page-loaded');
+            console.log('🚀 JJC Website Loaded Successfully!');
+        });
+        
+        // Service Worker Registration (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+    </script>
 </body>
 </html>
