@@ -156,6 +156,9 @@ body {
     list-style: none;
     gap: 25px;
     transition: all 0.5s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .header.scrolled .nav-menu {
@@ -227,6 +230,12 @@ body {
 
     .social-icons {
         margin-right: 1rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        transform: none;
     }
 
     .nav-menu {
@@ -310,11 +319,11 @@ body {
 
 @media (max-width: 480px) {
     .logo {
-        margin-left: 0.5rem;
+        margin-left: 1rem;
     }
 
     .social-icons {
-        margin-right: 0.5rem;
+        margin-right: 1rem;
     }
 
     .logo-img {
