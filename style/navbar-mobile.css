@@ -99,7 +99,7 @@
         justify-content: center;
         align-items: center;
         gap: 0;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1001;
         padding: 3rem 2rem;
         overflow: hidden;
@@ -109,6 +109,9 @@
         opacity: 0;
         transform: translateY(-20px);
         display: flex;
+        /* Enhanced touch support */
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-menu.active {
@@ -116,6 +119,104 @@
         opacity: 1;
         transform: translateY(0);
         padding: 3rem 2rem;
+    }
+    
+    /* Swipe gesture visual feedback */
+    .nav-menu.swipe-active {
+        transition: all 0.1s ease-out;
+    }
+    
+    .nav-menu.swipe-up {
+        transform: translateY(-10px);
+        opacity: 0.9;
+    }
+    
+    .nav-menu.swipe-down {
+        transform: translateY(10px);
+        opacity: 0.9;
+    }
+    
+    .nav-menu.swipe-left {
+        transform: translateX(-10px);
+        opacity: 0.9;
+    }
+    
+    .nav-menu.swipe-right {
+        transform: translateX(10px);
+        opacity: 0.9;
+    }
+    
+    /* Swipe indicator */
+    .nav-menu::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .nav-menu.active::before {
+        opacity: 1;
+    }
+    
+    .nav-menu.swipe-active::before {
+        background: rgba(251, 191, 36, 0.8);
+        transform: translateX(-50%) scale(1.2);
+    }
+    
+    /* Swipe direction indicators */
+    .nav-menu.swipe-up::after {
+        content: '↑';
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fbbf24;
+        font-size: 1.5rem;
+        font-weight: bold;
+        opacity: 0.8;
+    }
+    
+    .nav-menu.swipe-down::after {
+        content: '↓';
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fbbf24;
+        font-size: 1.5rem;
+        font-weight: bold;
+        opacity: 0.8;
+    }
+    
+    .nav-menu.swipe-left::after {
+        content: '←';
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fbbf24;
+        font-size: 1.5rem;
+        font-weight: bold;
+        opacity: 0.8;
+    }
+    
+    .nav-menu.swipe-right::after {
+        content: '→';
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fbbf24;
+        font-size: 1.5rem;
+        font-weight: bold;
+        opacity: 0.8;
     }
 
     .nav-menu a {
@@ -223,6 +324,21 @@
         width: 100%;
         max-width: 350px;
     }
+    
+    /* Adjust swipe indicators for smaller screens */
+    .nav-menu::before {
+        width: 30px;
+        height: 3px;
+        top: 15px;
+    }
+    
+    .nav-menu.swipe-up::after,
+    .nav-menu.swipe-down::after,
+    .nav-menu.swipe-left::after,
+    .nav-menu.swipe-right::after {
+        font-size: 1.2rem;
+        top: 25px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -274,5 +390,37 @@
     .nav-menu a:hover,
     .nav-menu a.active {
         padding-left: 1.5rem;
+    }
+    
+    /* Adjust swipe indicators for landscape mode */
+    .nav-menu::before {
+        width: 35px;
+        height: 3px;
+        top: 10px;
+    }
+    
+    .nav-menu.swipe-up::after,
+    .nav-menu.swipe-down::after,
+    .nav-menu.swipe-left::after,
+    .nav-menu.swipe-right::after {
+        font-size: 1.3rem;
+        top: 20px;
+    }
+    
+    /* Reduce swipe sensitivity in landscape */
+    .nav-menu.swipe-up {
+        transform: translateY(-5px);
+    }
+    
+    .nav-menu.swipe-down {
+        transform: translateY(5px);
+    }
+    
+    .nav-menu.swipe-left {
+        transform: translateX(-5px);
+    }
+    
+    .nav-menu.swipe-right {
+        transform: translateX(5px);
     }
 }

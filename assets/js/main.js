@@ -161,6 +161,144 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
+        // Enhanced Swipe Gesture Detection for Mobile Menu
+        const addSwipeGestures = () => {
+            let startX = 0;
+            let startY = 0;
+            let endX = 0;
+            let endY = 0;
+            let isMenuOpen = false;
+            let isSwipeActive = false;
+            
+            // Touch start event
+            navMenu.addEventListener('touchstart', (e) => {
+                if (!navMenu.classList.contains('active')) return;
+                
+                const touch = e.touches[0];
+                startX = touch.clientX;
+                startY = touch.clientY;
+                isMenuOpen = true;
+                isSwipeActive = false;
+                
+                // Add haptic feedback
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(30);
+                }
+            }, { passive: true });
+            
+            // Touch move event
+            navMenu.addEventListener('touchmove', (e) => {
+                if (!isMenuOpen) return;
+                
+                const touch = e.touches[0];
+                endX = touch.clientX;
+                endY = touch.clientY;
+                
+                // Calculate swipe direction and distance
+                const deltaX = endX - startX;
+                const deltaY = endY - startY;
+                const absDeltaX = Math.abs(deltaX);
+                const absDeltaY = Math.abs(deltaY);
+                
+                // Minimum swipe distance (in pixels)
+                const minSwipeDistance = 50;
+                const visualFeedbackThreshold = 20;
+                
+                // Add visual feedback during swipe
+                if (absDeltaX > visualFeedbackThreshold || absDeltaY > visualFeedbackThreshold) {
+                    if (!isSwipeActive) {
+                        navMenu.classList.add('swipe-active');
+                        isSwipeActive = true;
+                    }
+                    
+                    // Determine swipe direction for visual feedback
+                    if (absDeltaX > absDeltaY) {
+                        // Horizontal swipe
+                        if (deltaX < -visualFeedbackThreshold) {
+                            navMenu.classList.remove('swipe-right');
+                            navMenu.classList.add('swipe-left');
+                        } else if (deltaX > visualFeedbackThreshold) {
+                            navMenu.classList.remove('swipe-left');
+                            navMenu.classList.add('swipe-right');
+                        }
+                    } else {
+                        // Vertical swipe
+                        if (deltaY < -visualFeedbackThreshold) {
+                            navMenu.classList.remove('swipe-down');
+                            navMenu.classList.add('swipe-up');
+                        } else if (deltaY > visualFeedbackThreshold) {
+                            navMenu.classList.remove('swipe-up');
+                            navMenu.classList.add('swipe-down');
+                        }
+                    }
+                }
+                
+                // Determine if it's a valid swipe to close menu
+                if (absDeltaX > minSwipeDistance || absDeltaY > minSwipeDistance) {
+                    // Horizontal swipe (left or right)
+                    if (absDeltaX > absDeltaY) {
+                        // Swipe left to close menu
+                        if (deltaX < -minSwipeDistance) {
+                            closeMobileMenu();
+                            isMenuOpen = false;
+                        }
+                        // Swipe right to close menu
+                        else if (deltaX > minSwipeDistance) {
+                            closeMobileMenu();
+                            isMenuOpen = false;
+                        }
+                    }
+                    // Vertical swipe (up or down)
+                    else {
+                        // Swipe up to close menu
+                        if (deltaY < -minSwipeDistance) {
+                            closeMobileMenu();
+                            isMenuOpen = false;
+                        }
+                        // Swipe down to close menu
+                        else if (deltaY > minSwipeDistance) {
+                            closeMobileMenu();
+                            isMenuOpen = false;
+                        }
+                    }
+                }
+            }, { passive: true });
+            
+            // Touch end event
+            navMenu.addEventListener('touchend', (e) => {
+                isMenuOpen = false;
+                
+                // Reset visual feedback
+                if (isSwipeActive) {
+                    navMenu.classList.remove('swipe-active', 'swipe-up', 'swipe-down', 'swipe-left', 'swipe-right');
+                    isSwipeActive = false;
+                }
+            }, { passive: true });
+            
+            // Touch cancel event (for interrupted touches)
+            navMenu.addEventListener('touchcancel', (e) => {
+                isMenuOpen = false;
+                
+                // Reset visual feedback
+                if (isSwipeActive) {
+                    navMenu.classList.remove('swipe-active', 'swipe-up', 'swipe-down', 'swipe-left', 'swipe-right');
+                    isSwipeActive = false;
+                }
+            }, { passive: true });
+        };
+        
+        // Initialize swipe gestures only on mobile devices
+        if (window.innerWidth <= 768) {
+            addSwipeGestures();
+        }
+        
+        // Re-initialize swipe gestures on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                addSwipeGestures();
+            }
+        });
+        
         return { closeMobileMenu };
     };
     
