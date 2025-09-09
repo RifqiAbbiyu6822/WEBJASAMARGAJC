@@ -54,13 +54,6 @@
     <!-- Enhanced Page Header with Banner -->
     <section class="page-header contact-page" role="banner">
         <div class="container">
-            <nav class="breadcrumb" aria-label="Breadcrumb">
-                <div class="breadcrumb-nav">
-                    <a href="../index.html">Beranda</a>
-                    <span class="separator" aria-hidden="true">/</span>
-                    <span class="current" aria-current="page">Kontak Kami</span>
-                </div>
-            </nav>
             
             <div class="page-header-content fade-in-up">
                 <h1 class="page-title">Hubungi Kami</h1>
@@ -118,68 +111,6 @@
         </div>
     </section>
 
-    <!-- Comment Section -->
-    <section class="comment-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="yellow-bar"></div>
-                <h2>LAPORAN KELUHAN</h2>
-            </div>
-            
-            <div class="comment-form-container">
-                <form class="comment-form" id="commentForm" action="mailto:armasuka11@gmail.com" method="post" enctype="text/plain">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Nama Lengkap *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Nomor Telepon</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subjek *</label>
-                            <select id="subject" name="subject" required>
-                                <option value="">Pilih subjek</option>
-                                <option value="saran">Saran & Masukan</option>
-                                <option value="keluhan">Keluhan</option>
-                                <option value="pujian">Pujian</option>
-                                <option value="pertanyaan">Pertanyaan</option>
-                                <option value="lainnya">Lainnya</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Pesan/Komentar *</label>
-                        <textarea id="message" name="message" rows="6" required placeholder="Tulis pesan atau komentar Anda di sini..."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="agree" name="agree" required>
-                            <span class="checkmark"></span>
-                            Saya setuju dengan <a href="#" class="terms-link">Syarat & Ketentuan</a> dan <a href="#" class="privacy-link">Kebijakan Privasi</a>
-                        </label>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i>
-                            Kirim Laporan
-                        </button>
-                        <button type="reset" class="reset-btn">
-                            <i class="fas fa-undo"></i>
-                            Reset Form
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -193,21 +124,23 @@
                     <div class="footer-column">
                         <h3>TENTANG KAMI</h3>
                         <a href="tentang.html">Profil Perusahaan</a>
-                        <a href="#disclaimer">Disclaimer</a>
+                        <a href="berita.html">Kegiatan</a>
                     </div>
                     
                     <div class="footer-column">
-                        <h3>BISNIS KAMI</h3>
-                        <a href="layanan.html">General Contractor</a>
-                        <a href="layanan.html">Kontrak Manajemen Pemeliharaan</a>
-                        <a href="layanan.html">Jasa Survey Pemeliharaan</a>
-                        <a href="layanan.html">Penyewaan Alat Berat</a>
-                        <a href="layanan.html">Produk JJC</a>
+                        <h3>LAYANAN KAMI</h3>
+                        <a href="layanan.html">Layanan Kendaraan</a>
+                        <a href="layanan.html">Fasilitas Infrastruktur</a>
                     </div>
                     
                     <div class="footer-column">
-                        <h3>ALAMAT</h3>
-                        <p>Jl. Teuku Umar No.1, RT.002/RW.001, Sepanjang Jaya, Kec. Rawalumbu, Kota Bekasi, Jawa Barat 17114.</p>
+                        <h3>KONTAK</h3>
+                        <a href="kontak.html" aria-current="page">Hubungi Kami</a>
+                        <address>
+                            Jl. Teuku Umar No.1, RT.002/RW.001<br>
+                            Sepanjang Jaya, Kec. Rawalumbu<br>
+                            Kota Bekasi, Jawa Barat 17114
+                        </address>
                     </div>
                 </div>
             </div>
@@ -216,10 +149,13 @@
                 <div class="copyright">
                     © 2025 PT JJC - Jasa Marga Group.
                 </div>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <div class="social-icons" role="complementary" aria-label="Footer social media links">
+                    <a href="https://www.instagram.com/official.layangmbz.jjc?igsh=MWtucnI5M2E4Z2Iwdg==" target="_blank" rel="noopener" aria-label="Instagram JJC">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@layangmbz?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener" aria-label="TikTok JJC">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
                 </div>
             </div>
         </div>
