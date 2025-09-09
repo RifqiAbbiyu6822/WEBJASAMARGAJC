@@ -23,43 +23,88 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!mobileMenuToggle || !navMenu) return;
 
-        mobileMenuToggle.addEventListener('click', function() {
+        // Enhanced toggle with smooth animations and haptic feedback
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isActive = this.classList.contains('active');
+            
+            // Add haptic feedback for mobile devices
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
+            }
+            
             this.classList.toggle('active');
             navMenu.classList.toggle('active');
             
-            // Prevent body scroll when menu is open
-            if (navMenu.classList.contains('active')) {
+            // Enhanced body scroll prevention
+            if (!isActive) {
                 document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
+                
+                // Animate menu items with stagger effect
+                const menuItems = navMenu.querySelectorAll('a');
+                menuItems.forEach((item, index) => {
+                    item.style.animationDelay = `${index * 0.1}s`;
+                    item.style.animationPlayState = 'running';
+                });
             } else {
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
+                
+                // Reset animation delays when closing
+                const menuItems = navMenu.querySelectorAll('a');
+                menuItems.forEach((item) => {
+                    item.style.animationDelay = '0s';
+                    item.style.animationPlayState = 'paused';
+                });
             }
         });
 
-        // Close menu when clicking on nav links
+        // Enhanced menu item clicks with loading state
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
+            link.addEventListener('click', (e) => {
+                // Add loading state
+                link.style.transform = 'scale(0.95)';
+                link.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.style.position = '';
+                    document.body.style.width = '';
+                    
+                    // Reset link state
+                    link.style.transform = '';
+                    link.style.opacity = '';
+                }, 150);
             });
         });
 
-        // Close menu when clicking outside
+        // Enhanced outside click detection
         document.addEventListener('click', function(e) {
             if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
+                if (navMenu.classList.contains('active')) {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.style.position = '';
+                    document.body.style.width = '';
+                }
             }
         });
 
-        // Close menu on escape key
+        // Enhanced escape key handling
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                 mobileMenuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
             }
         });
     };
