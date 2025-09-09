@@ -365,34 +365,10 @@ body {
         color: #fbbf24;
     }
     
-    /* Social media icons di bawah menu */
-    .nav-menu .social-icons {
-        margin-top: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-    }
-    
-    .nav-menu .social-icons a {
-        color: white;
-        font-size: 1.5rem;
-        transition: color 0.3s ease;
-        padding: 0;
-        margin: 0;
-        width: auto;
-        max-width: none;
-        min-height: auto;
-        background: transparent;
-        border: none;
-        border-radius: 0;
-    }
-    
-    .nav-menu .social-icons a:hover {
-        color: #fbbf24;
-        transform: none;
-        box-shadow: none;
-    }
+     /* Hide social icons in mobile menu to prevent duplication */
+     .nav-menu .social-icons {
+         display: none;
+     }
 
     .mobile-menu-toggle {
         display: flex;
@@ -446,23 +422,9 @@ body {
         transform: scale(0.8);
     }
 
-    /* Hide social icons on mobile menu */
+    /* Hide social icons on mobile menu to prevent duplication */
     .nav-menu .social-icons {
-        display: flex;
-        margin-top: 2rem;
-        margin-right: 0;
-    }
-
-    .nav-menu .social-icons a {
-        width: 50px;
-        height: 50px;
-        font-size: 1.3rem;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 0.5rem;
+        display: none;
     }
 }
 
@@ -2967,14 +2929,6 @@ main,
         max-width: 350px;
     }
     
-    .nav-menu .social-icons {
-        margin-top: 1.5rem;
-        gap: 1.2rem;
-    }
-    
-    .nav-menu .social-icons a {
-        font-size: 1.3rem;
-    }
 }
 
 /* Additional Responsive Improvements */
@@ -3077,14 +3031,6 @@ main,
         max-width: 300px;
     }
     
-    .nav-menu .social-icons {
-        margin-top: 1.5rem;
-        gap: 1.2rem;
-    }
-    
-    .nav-menu .social-icons a {
-        font-size: 1.3rem;
-    }
 }
 
 /* High DPI Displays */
@@ -4858,14 +4804,6 @@ main * {
         max-width: 280px;
     }
     
-    .nav-menu .social-icons {
-        margin-top: 1.2rem;
-        gap: 1rem;
-    }
-    
-    .nav-menu .social-icons a {
-        font-size: 1.2rem;
-    }
 }
 
 /* Ensure proper touch targets on mobile */
