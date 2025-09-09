@@ -1,0 +1,278 @@
+/* ========================================
+   NAVBAR MOBILE STYLES
+   ======================================== */
+
+/* Mobile Navbar - Only applies to screens 768px and below */
+@media (max-width: 768px) {
+    
+    /* Mobile Header */
+    .header {
+        overflow: visible;
+    }
+    
+    .main-nav {
+        overflow: visible;
+        position: relative;
+    }
+    
+    .logo {
+        overflow: visible;
+    }
+    
+    /* Mobile Logo Adjustments */
+    .logo {
+        margin-left: 1rem;
+    }
+    
+    .logo-img {
+        width: 180px;
+        height: 190px;
+        transform: scale(0.7);
+    }
+    
+    .header.scrolled .logo-img {
+        width: 180px;
+        height: 190px;
+        transform: scale(0.7);
+    }
+    
+    /* Hide Desktop Navigation Menu */
+    .nav-menu {
+        display: none;
+    }
+    
+    /* Mobile Social Icons */
+    .social-icons {
+        margin-right: 1rem;
+    }
+    
+    /* Mobile Menu Toggle Button */
+    .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 12px;
+        margin-right: 1rem;
+        z-index: 1001;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mobile-menu-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    /* Mobile Navigation Menu */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: #1e3a8a;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        transition: all 0.3s ease;
+        z-index: 1001;
+        padding: 3rem 2rem;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        display: flex;
+    }
+
+    .nav-menu.active {
+        max-height: calc(100vh - 70px);
+        opacity: 1;
+        transform: translateY(0);
+        padding: 3rem 2rem;
+    }
+
+    .nav-menu a {
+        font-size: 1.3rem;
+        padding: 1.5rem 0;
+        border-radius: 0;
+        text-align: center;
+        border: none;
+        color: white !important;
+        text-shadow: none;
+        width: 100%;
+        max-width: 400px;
+        transition: all 0.3s ease;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        margin-bottom: 0;
+        background: transparent;
+        backdrop-filter: none;
+        display: block;
+        text-decoration: none;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: unset;
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .nav-menu a:hover {
+        color: #fbbf24 !important;
+    }
+    
+    .nav-menu a.active {
+        color: white !important;
+    }
+    
+    .nav-menu a.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #fbbf24;
+        border-radius: 2px;
+    }
+    
+    .nav-menu a:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Styling untuk menu dengan dropdown arrow */
+    .nav-menu a.has-dropdown::after {
+        content: '▼';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.8rem;
+        color: white;
+        margin-left: 0.5rem;
+    }
+    
+    .nav-menu a.active.has-dropdown::after {
+        content: '▼';
+        color: white;
+    }
+    
+    .nav-menu a:hover.has-dropdown::after {
+        color: #fbbf24;
+    }
+    
+    /* Hide social icons in mobile menu to prevent duplication */
+    .nav-menu .social-icons {
+        display: none;
+    }
+    
+    /* Z-index fixes for mobile */
+    .header.scrolled .nav-menu {
+        z-index: 1001;
+    }
+
+    .header.scrolled .mobile-menu-toggle {
+        z-index: 1002;
+    }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 480px) {
+    .nav-menu {
+        padding: 2rem 1rem;
+    }
+    
+    .nav-menu.active {
+        padding: 2rem 1rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.2rem;
+        padding: 1.2rem 0;
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-menu {
+        padding: 2rem 1rem;
+    }
+    
+    .nav-menu.active {
+        padding: 2rem 1rem;
+    }
+    
+    .nav-menu a {
+        padding: 1rem 0;
+        font-size: 1.1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 320px) {
+    .nav-menu {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .nav-menu.active {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.9rem 0;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .nav-menu.active {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-menu a {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+        min-height: 40px;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        padding-left: 1.5rem;
+    }
+}

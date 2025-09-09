@@ -1,0 +1,239 @@
+/* ========================================
+   NAVBAR DESKTOP STYLES
+   ======================================== */
+
+/* Desktop Navbar Container */
+.header {
+    background: transparent;
+    color: transparent;
+    padding: 0.1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: none;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.header.scrolled {
+    background: #1e3a8a;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0.1rem 0;
+    z-index: 1000;
+}
+
+/* Desktop Main Navigation */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem 0;
+    transition: padding 0.5s ease;
+    height: 70px;
+    overflow: hidden;
+}
+
+.header.scrolled .main-nav {
+    padding: 0.2rem 0;
+}
+
+/* Desktop Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+    height: 60px;
+    overflow: hidden;
+    margin-left: 2rem;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
+.logo-link:focus {
+    outline: 2px solid var(--accent-yellow);
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+.logo-img {
+    width: 230px;
+    height: 240px;
+    object-fit: contain;
+    transition: all 0.5s ease;
+    transform: scale(0.8);
+    transform-origin: center;
+}
+
+.logo-transparent {
+    display: block;
+}
+
+.logo-scrolled {
+    display: none;
+}
+
+.header.scrolled .logo-transparent {
+    display: none;
+}
+
+.header.scrolled .logo-scrolled {
+    display: block;
+}
+
+.header.scrolled .logo-img {
+    width: 200px;
+    height: 210px;
+    transform: scale(0.7);
+}
+
+/* Desktop Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    transition: all 0.5s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header.scrolled .nav-menu {
+    gap: 20px;
+}
+
+.nav-menu a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    transition: all 0.5s ease;
+    position: relative;
+    opacity: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header.scrolled .nav-menu a {
+    font-size: 12px;
+    color: white !important;
+    text-shadow: none;
+}
+
+.nav-menu a:hover {
+    color: #fbbf24 !important;
+}
+
+.header.scrolled .nav-menu a:hover {
+    color: #fbbf24 !important;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fbbf24;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.header.scrolled .nav-menu a::after {
+    bottom: -3px;
+}
+
+/* Desktop Social Icons */
+.social-icons {
+    display: flex;
+    gap: 12px;
+    transition: all 0.5s ease;
+    margin-right: 2rem;
+}
+
+.social-icons a {
+    text-decoration: none;
+}
+
+.social-icons a i {
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header.scrolled .social-icons a i {
+    text-shadow: none;
+}
+
+.social-icons a:hover i {
+    color: #fbbf24;
+    transform: scale(1.1);
+}
+
+/* Hide Mobile Menu Toggle on Desktop */
+.mobile-menu-toggle {
+    display: none;
+}
+
+/* Desktop Responsive Adjustments */
+@media (max-width: 1024px) {
+    .logo-img {
+        width: 200px;
+        height: 210px;
+        transform: scale(0.75);
+    }
+    
+    .header.scrolled .logo-img {
+        width: 180px;
+        height: 190px;
+        transform: scale(0.65);
+    }
+    
+    .nav-menu {
+        gap: 20px;
+    }
+    
+    .nav-menu a {
+        font-size: 12px;
+    }
+    
+    .header.scrolled .nav-menu a {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 900px) {
+    .logo {
+        margin-left: 1.5rem;
+    }
+    
+    .social-icons {
+        margin-right: 1.5rem;
+    }
+    
+    .nav-menu {
+        gap: 18px;
+    }
+    
+    .nav-menu a {
+        font-size: 11px;
+    }
+    
+    .header.scrolled .nav-menu a {
+        font-size: 10px;
+    }
+}
