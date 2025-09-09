@@ -101,11 +101,11 @@
         justify-content: flex-start;
         align-items: center;
         gap: 0;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.5s ease;
         z-index: 1001;
         padding: 2rem 1.5rem;
         overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         border-radius: 0 0 12px 12px;
         box-sizing: border-box;
         max-height: 0;
@@ -222,7 +222,7 @@
     }
 
     .nav-menu a {
-        font-size: 1.1rem;
+        font-size: 12px;
         padding: 1rem 2rem;
         border-radius: 8px;
         text-align: center;
@@ -231,8 +231,8 @@
         text-shadow: none;
         width: 100%;
         max-width: 500px;
-        transition: all 0.3s ease;
-        font-weight: 400;
+        transition: all 0.5s ease;
+        font-weight: 500;
         letter-spacing: 0.3px;
         margin-bottom: 0.5rem;
         background: transparent;
@@ -260,16 +260,23 @@
         background: rgba(255, 255, 255, 0.1);
     }
     
-    .nav-menu a.active::after {
+    .nav-menu a::after {
         content: '';
         position: absolute;
         bottom: 8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40px;
+        left: 0;
+        width: 0;
         height: 2px;
         background: #fbbf24;
-        border-radius: 1px;
+        transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+    
+    .nav-menu a.active::after {
+        width: 100%;
     }
     
     .nav-menu a:last-child {
@@ -326,7 +333,7 @@
     }
     
     .nav-menu a {
-        font-size: 1rem;
+        font-size: 11px;
         padding: 0.8rem 1.5rem;
         width: 100%;
         max-width: 400px;
@@ -362,7 +369,7 @@
     
     .nav-menu a {
         padding: 0.9rem 1.8rem;
-        font-size: 1.05rem;
+        font-size: 11px;
         width: 100%;
         max-width: 450px;
     }
@@ -382,7 +389,7 @@
     
     .nav-menu a {
         padding: 0.7rem 1rem;
-        font-size: 0.95rem;
+        font-size: 10px;
         width: 100%;
         max-width: 350px;
     }
@@ -403,7 +410,7 @@
     
     .nav-menu a {
         padding: 0.6rem 1.5rem;
-        font-size: 0.95rem;
+        font-size: 10px;
         min-height: 36px;
         margin-bottom: 0.3rem;
         max-width: 500px;
