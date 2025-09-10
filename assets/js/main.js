@@ -31,11 +31,15 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             e.stopPropagation();
             
+            console.log('Mobile menu toggle clicked - preventDefault and stopPropagation called');
+            
             const isActive = this.classList.contains('active');
             
             // Toggle menu state
             this.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            console.log('Menu state toggled. Active:', !isActive);
             
             // Prevent body scroll when menu is open
             if (!isActive) {
@@ -76,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!newToggle.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
+                console.log('Outside click detected - closing mobile menu');
                 newToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 document.body.style.overflow = '';
@@ -100,239 +105,10 @@ document.addEventListener('DOMContentLoaded', function() {
     enhanceNavbarScrollEffect();
     enhanceMobileMenuToggle();
 
-    // Enhanced Mobile Menu with Better UX - DISABLED to prevent conflicts
+    // Enhanced Mobile Menu with Better UX - COMPLETELY DISABLED to prevent conflicts
     const createEnhancedMobileMenu = () => {
-        return; // Disabled to prevent conflicts with enhanceMobileMenuToggle
-        const navMenu = document.querySelector('.nav-menu');
-        const header = document.querySelector('.header');
-        const navContainer = document.querySelector('.nav-container');
-        
-        if (!navMenu || !header || !navContainer) return;
-        
-        let mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        
-        if (!mobileMenuBtn) {
-            mobileMenuBtn = document.createElement('button');
-            mobileMenuBtn.innerHTML = `
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            `;
-            mobileMenuBtn.className = 'mobile-menu-btn';
-            mobileMenuBtn.setAttribute('aria-label', 'Toggle navigation menu');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            navContainer.appendChild(mobileMenuBtn);
-        }
-        
-        // Enhanced toggle with smooth animations
-        mobileMenuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isActive = mobileMenuBtn.classList.contains('active');
-            
-            // Add haptic feedback for mobile devices
-            if ('vibrate' in navigator) {
-                navigator.vibrate(50);
-            }
-            
-            mobileMenuBtn.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.setAttribute('aria-expanded', !isActive);
-            
-            // Enhanced body scroll prevention
-            if (!isActive) {
-                document.body.style.overflow = 'hidden';
-                document.body.style.position = 'fixed';
-                document.body.style.width = '100%';
-            } else {
-                document.body.style.overflow = '';
-                document.body.style.position = '';
-                document.body.style.width = '';
-            }
-            
-            // Animate menu items with stagger effect
-            if (!isActive) {
-                const menuItems = navMenu.querySelectorAll('li');
-                menuItems.forEach((item, index) => {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateX(-20px)';
-                    setTimeout(() => {
-                        item.style.transition = 'all 0.3s ease';
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateX(0)';
-                    }, index * 100);
-                });
-            }
-        });
-        
-        // Enhanced outside click detection
-        document.addEventListener('click', (e) => {
-            if (!header.contains(e.target) && navMenu.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-        
-        // Close menu function
-        const closeMobileMenu = () => {
-            mobileMenuBtn.classList.remove('active');
-            navMenu.classList.remove('active');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
-        };
-        
-        // Enhanced menu item clicks
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Add loading state
-                link.classList.add('loading-state');
-                setTimeout(() => {
-                    link.classList.remove('loading-state');
-                }, 1000);
-                
-                closeMobileMenu();
-            });
-        });
-        
-        // Enhanced Swipe Gesture Detection for Mobile Menu
-        const addSwipeGestures = () => {
-            let startX = 0;
-            let startY = 0;
-            let endX = 0;
-            let endY = 0;
-            let isMenuOpen = false;
-            let isSwipeActive = false;
-            
-            // Touch start event
-            navMenu.addEventListener('touchstart', (e) => {
-                if (!navMenu.classList.contains('active')) return;
-                
-                const touch = e.touches[0];
-                startX = touch.clientX;
-                startY = touch.clientY;
-                isMenuOpen = true;
-                isSwipeActive = false;
-                
-                // Add haptic feedback
-                if ('vibrate' in navigator) {
-                    navigator.vibrate(30);
-                }
-            }, { passive: true });
-            
-            // Touch move event
-            navMenu.addEventListener('touchmove', (e) => {
-                if (!isMenuOpen) return;
-                
-                const touch = e.touches[0];
-                endX = touch.clientX;
-                endY = touch.clientY;
-                
-                // Calculate swipe direction and distance
-                const deltaX = endX - startX;
-                const deltaY = endY - startY;
-                const absDeltaX = Math.abs(deltaX);
-                const absDeltaY = Math.abs(deltaY);
-                
-                // Minimum swipe distance (in pixels)
-                const minSwipeDistance = 50;
-                const visualFeedbackThreshold = 20;
-                
-                // Add visual feedback during swipe
-                if (absDeltaX > visualFeedbackThreshold || absDeltaY > visualFeedbackThreshold) {
-                    if (!isSwipeActive) {
-                        navMenu.classList.add('swipe-active');
-                        isSwipeActive = true;
-                    }
-                    
-                    // Determine swipe direction for visual feedback
-                    if (absDeltaX > absDeltaY) {
-                        // Horizontal swipe
-                        if (deltaX < -visualFeedbackThreshold) {
-                            navMenu.classList.remove('swipe-right');
-                            navMenu.classList.add('swipe-left');
-                        } else if (deltaX > visualFeedbackThreshold) {
-                            navMenu.classList.remove('swipe-left');
-                            navMenu.classList.add('swipe-right');
-                        }
-                    } else {
-                        // Vertical swipe
-                        if (deltaY < -visualFeedbackThreshold) {
-                            navMenu.classList.remove('swipe-down');
-                            navMenu.classList.add('swipe-up');
-                        } else if (deltaY > visualFeedbackThreshold) {
-                            navMenu.classList.remove('swipe-up');
-                            navMenu.classList.add('swipe-down');
-                        }
-                    }
-                }
-                
-                // Determine if it's a valid swipe to close menu
-                if (absDeltaX > minSwipeDistance || absDeltaY > minSwipeDistance) {
-                    // Horizontal swipe (left or right)
-                    if (absDeltaX > absDeltaY) {
-                        // Swipe left to close menu
-                        if (deltaX < -minSwipeDistance) {
-                            closeMobileMenu();
-                            isMenuOpen = false;
-                        }
-                        // Swipe right to close menu
-                        else if (deltaX > minSwipeDistance) {
-                            closeMobileMenu();
-                            isMenuOpen = false;
-                        }
-                    }
-                    // Vertical swipe (up or down)
-                    else {
-                        // Swipe up to close menu
-                        if (deltaY < -minSwipeDistance) {
-                            closeMobileMenu();
-                            isMenuOpen = false;
-                        }
-                        // Swipe down to close menu
-                        else if (deltaY > minSwipeDistance) {
-                            closeMobileMenu();
-                            isMenuOpen = false;
-                        }
-                    }
-                }
-            }, { passive: true });
-            
-            // Touch end event
-            navMenu.addEventListener('touchend', (e) => {
-                isMenuOpen = false;
-                
-                // Reset visual feedback
-                if (isSwipeActive) {
-                    navMenu.classList.remove('swipe-active', 'swipe-up', 'swipe-down', 'swipe-left', 'swipe-right');
-                    isSwipeActive = false;
-                }
-            }, { passive: true });
-            
-            // Touch cancel event (for interrupted touches)
-            navMenu.addEventListener('touchcancel', (e) => {
-                isMenuOpen = false;
-                
-                // Reset visual feedback
-                if (isSwipeActive) {
-                    navMenu.classList.remove('swipe-active', 'swipe-up', 'swipe-down', 'swipe-left', 'swipe-right');
-                    isSwipeActive = false;
-                }
-            }, { passive: true });
-        };
-        
-        // Initialize swipe gestures only on mobile devices
-        if (window.innerWidth <= 768) {
-            addSwipeGestures();
-        }
-        
-        // Re-initialize swipe gestures on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth <= 768) {
-                addSwipeGestures();
-            }
-        });
-        
-        return { closeMobileMenu };
+        // Function completely disabled to prevent conflicts with enhanceMobileMenuToggle
+        return { closeMobileMenu: () => {} };
     };
     
     // const { closeMobileMenu } = createEnhancedMobileMenu(); // Disabled to prevent conflicts
@@ -891,10 +667,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Focus trap for mobile menu
         const mobileMenu = document.querySelector('.nav-menu');
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         
-        if (mobileMenu && mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
+        if (mobileMenu && mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
                 setTimeout(() => {
                     if (mobileMenu.classList.contains('active')) {
                         const firstLink = mobileMenu.querySelector('a');
