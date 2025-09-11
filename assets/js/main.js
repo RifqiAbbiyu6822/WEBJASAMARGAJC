@@ -1049,6 +1049,92 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     initializeDynamicNewsListing();
+
+    // Dynamic News Preview for homepage (section kegiatan)
+    const initializeHomeNewsPreview = () => {
+        const isHome = document.body.classList.contains('home-page') || window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+        if (!isHome) return;
+
+        const newsSection = document.querySelector('.news-section .news-grid');
+        if (!newsSection) return;
+
+        // Clear existing static cards
+        newsSection.innerHTML = '';
+
+        const slugs = ['berita-a', 'berita-b', 'berita-c', 'berita-d', 'berita-e', 'berita-f'];
+
+        const createCardHtml = ({ href, date, title, summary, imageSrc, iconClass }) => {
+            const imageHtml = imageSrc
+                ? `<img src="${imageSrc}" alt="${title}" loading="lazy">`
+                : `<i class="${iconClass || 'fas fa-newspaper'}"></i>`;
+
+            return `
+                <article class="news-card">
+                    <div class="news-image" aria-hidden="true">${imageHtml}</div>
+                    <div class="news-content">
+                        <div class="news-date">${date || ''}</div>
+                        <h3>${title || ''}</h3>
+                        <a href="${href}" class="read-more-btn"><span>Selengkapnya</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+            `;
+        };
+
+        const extractFirstParagraph = (root) => {
+            const p = root.querySelector('.news-content-full p');
+            if (p && p.textContent) {
+                const text = p.textContent.trim();
+                return text.length > 140 ? text.slice(0, 137) + '…' : text;
+            }
+            return '';
+        };
+
+        const mapFallbackIcon = (doc) => {
+            const icon = doc.querySelector('.news-image-large i');
+            return icon ? icon.className : 'fas fa-newspaper';
+        };
+
+        const tryGetImageSrc = (doc) => {
+            const img = doc.querySelector('.news-image-large img');
+            if (img && img.getAttribute('src')) {
+                // Ensure path works from homepage. If it starts with '../', strip one level.
+                const src = img.getAttribute('src');
+                return src.startsWith('../') ? src.replace('../', 'assets/js/img/') : src;
+            }
+            return '';
+        };
+
+        const fetchOne = async (slug) => {
+            const href = `pages/${slug}.html`;
+            try {
+                const res = await fetch(href, { credentials: 'same-origin' });
+                if (!res.ok) throw new Error(`Gagal memuat ${href}`);
+                const html = await res.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+
+                const title = (doc.querySelector('.page-header .page-title') || doc.querySelector('h1'))?.textContent?.trim() || '';
+                const date = doc.querySelector('.news-date')?.textContent?.trim() || '';
+                const summary = extractFirstParagraph(doc);
+                const imageSrc = tryGetImageSrc(doc);
+                const iconClass = imageSrc ? '' : mapFallbackIcon(doc);
+
+                return { href, date, title, summary, imageSrc, iconClass };
+            } catch (e) {
+                console.warn(e);
+                return { href, date: '', title: slug.replace(/-/g, ' ').toUpperCase(), summary: '', imageSrc: '', iconClass: 'fas fa-newspaper' };
+            }
+        };
+
+        (async () => {
+            const results = await Promise.all(slugs.map(fetchOne));
+            // Show only first 4 on homepage
+            const htmlCards = results.slice(0, 4).map(createCardHtml).join('');
+            newsSection.innerHTML = htmlCards;
+        })();
+    };
+
+    initializeHomeNewsPreview();
 });
 
 // Enhanced CSS animations and utilities to be added via JavaScript
