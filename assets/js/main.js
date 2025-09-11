@@ -1004,7 +1004,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const tryGetImageSrc = (doc) => {
             const img = doc.querySelector('.news-image-large img');
             if (img && img.getAttribute('src')) {
-                return img.getAttribute('src');
+                const src = img.getAttribute('src').trim();
+                if (/^https?:\/\//i.test(src) || src.startsWith('/')) {
+                    return src;
+                }
+                return src.replace(/^\.\.\//, '');
             }
             return '';
         };
@@ -1087,9 +1091,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const tryGetImageSrc = (doc) => {
             const img = doc.querySelector('.news-image-large img');
             if (img && img.getAttribute('src')) {
-                // Ensure path works from homepage. If it starts with '../', strip one level.
-                const src = img.getAttribute('src');
-                return src.startsWith('../') ? src.replace('../', 'assets/js/img/') : src;
+                // Normalisasi path agar bekerja dari root beranda
+                const src = img.getAttribute('src').trim();
+                // Jika sudah absolut (http/https) atau root-absolute, kembalikan apa adanya
+                if (/^https?:\/\//i.test(src) || src.startsWith('/')) {
+                    return src;
+                }
+                // Jika relatif ke parent (../), hapus satu level untuk dipakai dari beranda
+                return src.replace(/^\.\.\//, '');
             }
             return '';
         };
