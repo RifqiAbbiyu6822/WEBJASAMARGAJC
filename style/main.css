@@ -149,7 +149,7 @@ body {
         white-space: nowrap;
         overflow: visible;
         text-overflow: unset;
-        min-height: auto;
+        min-height: auto; 
         display: flex;
         align-items: center;
         justify-content: center;
