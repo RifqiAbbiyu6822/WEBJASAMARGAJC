@@ -176,21 +176,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const scrollDelta = Math.abs(scrollTop - lastScrollTop);
             
-            // Determine if it's home page
-            const isHomePage = document.body.classList.contains('home-page') || 
-                              window.location.pathname === '/' || 
-                              window.location.pathname.includes('index.html');
-            
-            if (isHomePage) {
-                // Home page behavior: transparent when at top, blue when scrolled
-                if (scrollTop > 80) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            } else {
-                // Sub-pages: always blue background
+            // Semua halaman: transparan di top, biru saat discroll > 50px
+            if (scrollTop > 50) {
                 header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
             
             // Add scroll direction classes for additional styling
